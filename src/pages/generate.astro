@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GenerateView from '../components/GenerateView';
+---
+
+<Layout title="Generuj">
+  <h1 class="mb-6 text-2xl font-bold">Generuj fiszki z tekstu</h1>
+  <GenerateView client:load />
+</Layout>
