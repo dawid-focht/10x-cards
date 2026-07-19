@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CardList from '../components/CardList';
+---
+
+<Layout title="Moje fiszki">
+  <h1 class="mb-6 text-2xl font-bold">Moje fiszki</h1>
+  <CardList client:load />
+</Layout>
