@@ -31,5 +31,5 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006
 - IDOR → wszystkie zapytania z `WHERE user_id = ?`; test jednostkowy repozytorium.
 
 ## Progress
-- [ ] Faza 1
-- [ ] Faza 2
+- [x] Faza 1
+- [x] Faza 2

@@ -33,5 +33,5 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)
 - Dryf wyroczni → tabela reguł w tym planie jest źródłem asercji (oracle problem, M3L1).
 
 ## Progress
-- [ ] Faza 1
-- [ ] Faza 2
+- [x] Faza 1
+- [x] Faza 2

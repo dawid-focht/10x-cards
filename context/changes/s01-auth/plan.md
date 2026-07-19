@@ -40,6 +40,6 @@ zwraca 401. (FR-001, FR-002, US-001, US-002, US-008)
 - Enumeracja e-maili przy rejestracji: 409 świadomie akceptowane w MVP (odnotowane).
 
 ## Progress
-- [ ] Faza 1
-- [ ] Faza 2
-- [ ] Faza 3
+- [x] Faza 1
+- [x] Faza 2
+- [x] Faza 3

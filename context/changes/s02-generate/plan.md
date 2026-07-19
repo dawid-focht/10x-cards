@@ -50,6 +50,6 @@ zaakceptowane. Metryki generacji trafiają do `generations`, błędy do
 - Koszty API → domyślnie MockProvider bez klucza; realny provider tylko z env.
 
 ## Progress
-- [ ] Faza 1
-- [ ] Faza 2
-- [ ] Faza 3
+- [x] Faza 1
+- [x] Faza 2
+- [x] Faza 3
