@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const user = Astro.locals.user;
+const path = Astro.url.pathname;
+
+const navItems = [
+  { href: '/generate', label: 'Generuj' },
+  { href: '/cards', label: 'Moje fiszki' },
+  { href: '/review', label: 'Powtórki' },
+];
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} — 10xCards</title>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
+        <a href="/" class="text-lg font-bold text-indigo-700">10xCards</a>
+        {
+          user && (
+            <nav class="flex items-center gap-4 text-sm" aria-label="Główna nawigacja">
+              {navItems.map((item) => (
+                <a
+                  href={item.href}
+                  class:list={[
+                    'rounded px-2 py-1 hover:bg-slate-100',
+                    path === item.href && 'bg-indigo-50 font-semibold text-indigo-700',
+                  ]}
+                >
+                  {item.label}
+                </a>
+              ))}
+              <span class="hidden text-slate-400 sm:inline">{user.email}</span>
+              <form method="post" action="/api/auth/logout">
+                <button type="submit" class="rounded px-2 py-1 text-slate-500 hover:bg-slate-100">
+                  Wyloguj
+                </button>
+              </form>
+            </nav>
+          )
+        }
+      </div>
+    </header>
+    <main class="mx-auto max-w-4xl px-4 py-8">
+      <slot />
+    </main>
+  </body>
+</html>
