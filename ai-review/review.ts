@@ -1,0 +1,194 @@
+/**
+ * Agent code review dla 10xCards.
+ *
+ *   git diff origin/main...HEAD | npx tsx review.ts
+ *
+ * Wejście: unified diff na stdin.
+ * Wyjście: JSON na stdout (oceny + werdykt bramki + koszt), logi na stderr.
+ * Kod wyjścia: 0 = bramka przepuszcza, 1 = bramka blokuje, 2 = agent nie wystartował.
+ */
+
+import { createOpenRouter } from '@openrouter/ai-sdk-provider';
+import { Output, ToolLoopAgent, stepCountIs } from 'ai';
+import {
+  REVIEW_SCHEMA,
+  SCORE_KEYS,
+  SYSTEM_PROMPT,
+  averageScore,
+  evaluateGate,
+  outOfRangeScores,
+  type Review,
+} from './common/review-schema.ts';
+
+/**
+ * Model: darmowy wariant z potwierdzonym wsparciem structured outputs.
+ * Dowód (GET https://openrouter.ai/api/v1/models/<id>/endpoints, 2026-08-10):
+ * jedyny endpoint tego wariantu (provider "Nvidia", 262144 ctx, cena 0/0)
+ * ma "structured_outputs" w supported_parameters. Szczegóły w README.md.
+ */
+const MODEL_ID = process.env.AI_REVIEW_MODEL ?? 'nvidia/nemotron-3-super-120b-a12b:free';
+
+/** Twardy limit wejścia — powyżej diff jest przycinany, żeby nie wysadzić okna kontekstu. */
+const MAX_DIFF_CHARS = Number(process.env.AI_REVIEW_MAX_DIFF_CHARS ?? 400_000);
+
+const EXIT_PASS = 0;
+const EXIT_BLOCKED = 1;
+const EXIT_ERROR = 2;
+
+function fail(message: string): never {
+  process.stderr.write(`ai-review: ${message}\n`);
+  process.exit(EXIT_ERROR);
+}
+
+async function readStdin(): Promise<string> {
+  if (process.stdin.isTTY) return '';
+  const chunks: Buffer[] = [];
+  for await (const chunk of process.stdin) {
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+  }
+  return Buffer.concat(chunks).toString('utf8');
+}
+
+/** Kształt zwracany przez @openrouter/ai-sdk-provider przy `usage: { include: true }`. */
+interface OpenRouterUsageMetadata {
+  usage?: {
+    cost?: number;
+    totalTokens?: number;
+    costDetails?: { upstreamInferenceCost?: number };
+  };
+  provider?: string;
+}
+
+async function main(): Promise<void> {
+  const apiKey = process.env.OPENROUTER_API_KEY;
+  if (!apiKey) {
+    fail(
+      'brak zmiennej środowiskowej OPENROUTER_API_KEY.\n' +
+        '  Lokalnie:  OPENROUTER_API_KEY=sk-or-... git diff | npx tsx review.ts\n' +
+        '  W CI:      przekaż sekret repozytorium jako env dla tego kroku.\n' +
+        '  Klucz zdobędziesz na https://openrouter.ai/keys — nie commituj go.',
+    );
+  }
+
+  const rawDiff = (await readStdin()).trim();
+  if (rawDiff.length === 0) {
+    process.stderr.write(
+      'ai-review: pusty diff na stdin — nie ma czego recenzować, bramka przepuszcza.\n',
+    );
+    process.stdout.write(
+      `${JSON.stringify({ skipped: true, reason: 'empty diff', gate: { passed: true, reasons: [] } }, null, 2)}\n`,
+    );
+    process.exit(EXIT_PASS);
+  }
+
+  let diff = rawDiff;
+  let truncated = false;
+  if (diff.length > MAX_DIFF_CHARS) {
+    diff = `${diff.slice(0, MAX_DIFF_CHARS)}\n\n[... diff przycięty na ${MAX_DIFF_CHARS} znakach ...]`;
+    truncated = true;
+    process.stderr.write(
+      `ai-review: diff ma ${rawDiff.length} znaków — przycięty do ${MAX_DIFF_CHARS}. Recenzja pokrywa tylko początek zmiany.\n`,
+    );
+  }
+
+  const openrouter = createOpenRouter({ apiKey });
+  const model = openrouter.chat(MODEL_ID, {
+    // Raportowanie kosztu: bez tego OpenRouter nie odsyła bloku usage z ceną.
+    usage: { include: true },
+    provider: {
+      // KLUCZOWE: routuj wyłącznie na endpointy, które obsługują wszystkie
+      // parametry requestu — czyli tu na te ze structured outputs. Bez tego
+      // OpenRouter potrafi wybrać providera bez wsparcia schematu i request padnie.
+      require_parameters: true,
+    },
+    // Strict włączony, bo `require_parameters: true` gwarantuje endpoint z
+    // deklarowanym wsparciem structured outputs. Gdyby konkretny provider mimo to
+    // odrzucał `json_schema.strict`, ustaw AI_REVIEW_STRICT_SCHEMA=0 — schemat
+    // nadal leci w response_format, tylko bez constrained decoding.
+    structuredOutputs: { strict: process.env.AI_REVIEW_STRICT_SCHEMA !== '0' },
+  });
+
+  const agent = new ToolLoopAgent({
+    model,
+    instructions: SYSTEM_PROMPT,
+    // Recenzent nie ma narzędzi — jedyne, co robi, to czyta diff i wypełnia schemat.
+    tools: {},
+    // Jeden krok na odpowiedź, drugi jako zapas na naprawę niezgodnego outputu.
+    stopWhen: stepCountIs(2),
+    output: Output.object({ schema: REVIEW_SCHEMA }),
+    temperature: 0,
+  });
+
+  process.stderr.write(`ai-review: model=${MODEL_ID}, diff=${diff.length} znaków\n`);
+
+  const startedAt = Date.now();
+  const result = await agent.generate({
+    prompt: `Oceń poniższy unified diff według pięciu kryteriów ze schematu.\n\n\`\`\`diff\n${diff}\n\`\`\``,
+  });
+  const durationMs = Date.now() - startedAt;
+
+  const review: Review = result.output;
+  const gate = evaluateGate(review);
+
+  const rangeProblems = outOfRangeScores(review);
+  for (const problem of rangeProblems) {
+    process.stderr.write(`ai-review: OSTRZEŻENIE — ${problem}\n`);
+  }
+  if (review.verdict === 'fail' && gate.passed) {
+    process.stderr.write(
+      'ai-review: model orzekł "fail", ale reguła progowa przepuszcza — decyduje bramka, znaleziska idą do triage.\n',
+    );
+  }
+
+  // Koszt: realna wartość z OpenRouter, nigdy szacunek.
+  const openrouterMeta = result.providerMetadata?.openrouter as OpenRouterUsageMetadata | undefined;
+  const cost = openrouterMeta?.usage?.cost;
+  const costKnown = typeof cost === 'number';
+  if (costKnown) {
+    process.stderr.write(`ai-review: koszt = $${cost.toFixed(6)} (providerMetadata.openrouter.usage.cost)\n`);
+  } else {
+    process.stderr.write(
+      'ai-review: koszt NIEZNANY — odpowiedź nie zawiera providerMetadata.openrouter.usage.cost. Nie szacuję go; sprawdź, czy usage.include przeszło do requestu.\n',
+    );
+  }
+
+  const usage = result.totalUsage;
+  process.stderr.write(
+    `ai-review: tokeny in=${usage.inputTokens ?? '?'} out=${usage.outputTokens ?? '?'} total=${usage.totalTokens ?? '?'}, czas=${durationMs} ms\n`,
+  );
+
+  const payload = {
+    model: MODEL_ID,
+    provider: openrouterMeta?.provider ?? null,
+    diff: { chars: rawDiff.length, truncated },
+    scores: Object.fromEntries(SCORE_KEYS.map((key) => [key, review[key]])),
+    average: Number(averageScore(review).toFixed(2)),
+    modelVerdict: review.verdict,
+    summary: review.summary,
+    gate,
+    warnings: rangeProblems,
+    usage: {
+      inputTokens: usage.inputTokens ?? null,
+      outputTokens: usage.outputTokens ?? null,
+      totalTokens: usage.totalTokens ?? null,
+      costUsd: costKnown ? cost : null,
+      costSource: costKnown ? 'providerMetadata.openrouter.usage.cost' : 'niedostępne w odpowiedzi',
+      durationMs,
+    },
+  };
+
+  process.stdout.write(`${JSON.stringify(payload, null, 2)}\n`);
+
+  if (!gate.passed) {
+    process.stderr.write('ai-review: BRAMKA BLOKUJE\n');
+    for (const reason of gate.reasons) process.stderr.write(`  - ${reason}\n`);
+    process.exit(EXIT_BLOCKED);
+  }
+  process.stderr.write('ai-review: bramka przepuszcza\n');
+  process.exit(EXIT_PASS);
+}
+
+main().catch((error: unknown) => {
+  const message = error instanceof Error ? error.message : String(error);
+  fail(`wywołanie modelu nie powiodło się — ${message}`);
+});
