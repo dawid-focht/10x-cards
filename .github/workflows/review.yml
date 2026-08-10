@@ -81,6 +81,7 @@ jobs:
 
           bytes=$(wc -c < "${out}")
           echo "diff względem ${base}: ${bytes} bajtów"
+          echo "path=${out}" >> "${GITHUB_OUTPUT}"
 
           truncated_note=''
           if [ "${bytes}" -gt "${MAX_DIFF_BYTES}" ]; then
@@ -109,6 +110,16 @@ jobs:
             cat "${out}"
             printf '\n%s\n' "${delim}"
           } >> "${GITHUB_OUTPUT}"
+
+      # Skan na PEŁNYM diffie, przed przycięciem. Akcja skanuje jeszcze raz to,
+      # co realnie dostaje model (defense in depth przy użyciu standalone), ale
+      # tam trafia już treść przycięta do limitu env — sekret w odciętej części
+      # przeszedłby niezauważony. Tu widzimy całość, niezależnie od rozmiaru.
+      - name: Skan sekretów na pełnym diffie
+        shell: bash
+        env:
+          DIFF_FILE: ${{ steps.diff.outputs.path }}
+        run: bash .github/actions/ai-reviewer/scan-secrets.sh
 
       - name: Agent code review
         id: review

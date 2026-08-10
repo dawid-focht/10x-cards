@@ -27,9 +27,23 @@
 
 set -euo pipefail
 
+# Dwa wejścia, świadomie. DIFF_FILE ma pierwszeństwo, bo pozwala skanować diff
+# PRZED przycięciem do limitu modelu: treść przekazywana zmienną środowiskową
+# podlega MAX_ARG_STRLEN (128 KiB), więc gdyby skan miał tylko DIFF, duży diff
+# musiałby najpierw zostać ucięty — a sekret w odciętej części nie zostałby ani
+# zeskanowany, ani zrecenzowany. Plik nie ma tego ograniczenia.
+DIFF_FILE="${DIFF_FILE:-}"
 DIFF="${DIFF:-}"
 
-if [ -z "$DIFF" ]; then
+if [ -n "$DIFF_FILE" ]; then
+  if [ ! -f "$DIFF_FILE" ]; then
+    echo "::error title=Skan sekretów::DIFF_FILE wskazuje na nieistniejący plik: ${DIFF_FILE}"
+    exit 2
+  fi
+  scan_source=(cat -- "$DIFF_FILE")
+elif [ -n "$DIFF" ]; then
+  scan_source=(printf '%s' "$DIFF")
+else
   echo "skan sekretów: diff jest pusty — nie ma czego skanować."
   exit 0
 fi
@@ -52,7 +66,7 @@ for entry in "${PATTERNS[@]}"; do
   name="${entry%%|*}"
   regex="${entry#*|}"
   # grep -c zwraca 1, gdy nic nie znalazł — stąd "|| true" pod `set -e`.
-  hits=$(printf '%s' "$DIFF" | grep -cE -- "$regex" || true)
+  hits=$("${scan_source[@]}" | grep -cE -- "$regex" || true)
   if [ "$hits" -gt 0 ]; then
     echo "::error title=Sekret w diffie::${name}: ${hits} pasujących linii. Treść świadomie nie trafia do logu."
     found=1
