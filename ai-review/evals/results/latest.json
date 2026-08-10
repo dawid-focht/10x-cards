@@ -1,0 +1,3232 @@
+{
+  "evalId": "eval-gAg-2026-08-10T13:55:06",
+  "results": {
+    "version": 3,
+    "timestamp": "2026-08-10T13:55:06.265Z",
+    "prompts": [
+      {
+        "id": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "raw": "{{diff}}",
+        "label": "{{diff}}",
+        "provider": "nemotron-3-super-120b (produkcja)",
+        "metrics": {
+          "score": 4,
+          "testPassCount": 3,
+          "testFailCount": 2,
+          "testErrorCount": 0,
+          "assertPassCount": 12,
+          "assertFailCount": 3,
+          "totalLatencyMs": 355789,
+          "tokenUsage": {
+            "prompt": 13016,
+            "completion": 1848,
+            "cached": 0,
+            "total": 14864,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {
+            "gate": 4,
+            "scale": 5,
+            "criteria": 3
+          },
+          "namedScoresCount": {
+            "gate": 5,
+            "scale": 5,
+            "criteria": 5
+          },
+          "namedScoreWeights": {
+            "gate": 5,
+            "scale": 5,
+            "criteria": 5
+          },
+          "cost": 0
+        }
+      },
+      {
+        "id": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "raw": "{{diff}}",
+        "label": "{{diff}}",
+        "provider": "gpt-oss-20b",
+        "metrics": {
+          "score": 0,
+          "testPassCount": 0,
+          "testFailCount": 0,
+          "testErrorCount": 5,
+          "assertPassCount": 0,
+          "assertFailCount": 0,
+          "totalLatencyMs": 653567,
+          "tokenUsage": {
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "total": 0,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "namedScoreWeights": {},
+          "cost": 0
+        }
+      },
+      {
+        "id": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "raw": "{{diff}}",
+        "label": "{{diff}}",
+        "provider": "gemma-4-26b-a4b-it",
+        "metrics": {
+          "score": 1.3333333333333333,
+          "testPassCount": 1,
+          "testFailCount": 1,
+          "testErrorCount": 3,
+          "assertPassCount": 4,
+          "assertFailCount": 2,
+          "totalLatencyMs": 183694,
+          "tokenUsage": {
+            "prompt": 9821,
+            "completion": 540,
+            "cached": 0,
+            "total": 10361,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {
+            "gate": 1,
+            "scale": 2,
+            "criteria": 1
+          },
+          "namedScoresCount": {
+            "gate": 2,
+            "scale": 2,
+            "criteria": 2
+          },
+          "namedScoreWeights": {
+            "gate": 2,
+            "scale": 2,
+            "criteria": 2
+          },
+          "cost": 0
+        }
+      },
+      {
+        "id": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "raw": "{{diff}}",
+        "label": "{{diff}}",
+        "provider": "nemotron-nano-9b-v2",
+        "metrics": {
+          "score": 0.3333333333333333,
+          "testPassCount": 0,
+          "testFailCount": 1,
+          "testErrorCount": 4,
+          "assertPassCount": 1,
+          "assertFailCount": 2,
+          "totalLatencyMs": 763018,
+          "tokenUsage": {
+            "prompt": 1960,
+            "completion": 1002,
+            "cached": 0,
+            "total": 2962,
+            "numRequests": 5,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0,
+              "numRequests": 0,
+              "completionDetails": {
+                "reasoning": 0,
+                "acceptedPrediction": 0,
+                "rejectedPrediction": 0,
+                "cacheReadInputTokens": 0,
+                "cacheCreationInputTokens": 0
+              }
+            }
+          },
+          "namedScores": {
+            "gate": 0,
+            "scale": 1,
+            "criteria": 0
+          },
+          "namedScoresCount": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "cost": 0
+        }
+      }
+    ],
+    "results": [
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "3fac3776-be6e-424b-98a9-a0070dd58f4c",
+        "latencyMs": 36212,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..81d49ba 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,12 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — test wlasnosci repozytorium\n+- `tests/unit/flashcards-isolation.test.ts` — asercje wyprowadzone z sekcji\n+  Success criteria i Risks tego planu: `list/update/delete` wywolane przez\n+  nie-wlasciciela nie zmieniaja stanu wlasciciela, a cudze i nieistniejace id\n+  sa nierozroznialne (FR-013, US-009). Domykalny risk „IDOR\".\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +39,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/tests/unit/flashcards-isolation.test.ts b/tests/unit/flashcards-isolation.test.ts\nnew file mode 100644\nindex 0000000..d1eb8d4\n--- /dev/null\n+++ b/tests/unit/flashcards-isolation.test.ts\n@@ -0,0 +1,56 @@\n+// Wyrocznia: context/changes/s03-manage/plan.md — Success criteria („PUT/DELETE na\n+// cudzym id → 404 bez treści różnicującej\", US-009) oraz Risks („IDOR → wszystkie\n+// zapytania z WHERE user_id = ?; test jednostkowy repozytorium\"), FR-013.\n+// Musi być ustawione zanim cokolwiek zawoła getDb() — testy chodzą na :memory:.\n+process.env.DATABASE_FILE = ':memory:';\n+\n+import { afterAll, beforeAll, describe, expect, it } from 'vitest';\n+import { createUser } from '../../src/lib/auth';\n+import {\n+  createFlashcard,\n+  deleteFlashcard,\n+  listFlashcards,\n+  updateFlashcard,\n+} from '../../src/db/flashcards';\n+import { closeDbForTests } from '../../src/db';\n+\n+let owner = 0;\n+let intruder = 0;\n+let cardId = 0;\n+\n+beforeAll(() => {\n+  owner = createUser('wlasciciel@example.com', 'haslo-wlasciciela')!;\n+  intruder = createUser('intruz@example.com', 'haslo-intruza')!;\n+  cardId = createFlashcard(owner, {\n+    front: 'Fotosynteza',\n+    back: 'Proces wytwarzania cukrow z CO2 i wody',\n+    source: 'manual',\n+  }).id;\n+});\n+\n+afterAll(() => {\n+  closeDbForTests();\n+});\n+\n+describe('izolacja repozytorium fiszek (FR-013, plan S-03: Risks IDOR)', () => {\n+  it('listFlashcards nie zwraca cudzych fiszek ani nie liczy ich w total', () => {\n+    const foreign = listFlashcards(intruder);\n+    expect(foreign.items).toHaveLength(0);\n+    expect(foreign.total).toBe(0);\n+  });\n+\n+  it('updateFlashcard na cudzym id → false, tresc wlasciciela nietknieta', () => {\n+    expect(updateFlashcard(intruder, cardId, { front: 'przejete', back: 'przejete' })).toBe(false);\n+    expect(listFlashcards(owner).items[0]?.front).toBe('Fotosynteza');\n+  });\n+\n+  it('deleteFlashcard na cudzym id → false, fiszka nadal istnieje', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(listFlashcards(owner).total).toBe(1);\n+  });\n+\n+  it('cudze i nieistniejace id sa nierozroznialne (oba → false)', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(deleteFlashcard(intruder, 999_999)).toBe(false);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ai-review:google/gemma-4-26b-a4b-it:free",
+          "label": "gemma-4-26b-a4b-it"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "exitCode": 2,
+            "wallClockMs": 36211,
+            "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "clean — test własności repozytorium zapowiedziany w planie",
+          "vars": {
+            "diff": "file://cases/clean.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/clean.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "google/gemma-4-26b-a4b-it:free",
+          "exitCode": 2,
+          "wallClockMs": 36211,
+          "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "ef49318d-3e0b-460f-985a-5dc0028fb39c",
+        "latencyMs": 74926,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..81d49ba 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,12 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — test wlasnosci repozytorium\n+- `tests/unit/flashcards-isolation.test.ts` — asercje wyprowadzone z sekcji\n+  Success criteria i Risks tego planu: `list/update/delete` wywolane przez\n+  nie-wlasciciela nie zmieniaja stanu wlasciciela, a cudze i nieistniejace id\n+  sa nierozroznialne (FR-013, US-009). Domykalny risk „IDOR\".\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +39,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/tests/unit/flashcards-isolation.test.ts b/tests/unit/flashcards-isolation.test.ts\nnew file mode 100644\nindex 0000000..d1eb8d4\n--- /dev/null\n+++ b/tests/unit/flashcards-isolation.test.ts\n@@ -0,0 +1,56 @@\n+// Wyrocznia: context/changes/s03-manage/plan.md — Success criteria („PUT/DELETE na\n+// cudzym id → 404 bez treści różnicującej\", US-009) oraz Risks („IDOR → wszystkie\n+// zapytania z WHERE user_id = ?; test jednostkowy repozytorium\"), FR-013.\n+// Musi być ustawione zanim cokolwiek zawoła getDb() — testy chodzą na :memory:.\n+process.env.DATABASE_FILE = ':memory:';\n+\n+import { afterAll, beforeAll, describe, expect, it } from 'vitest';\n+import { createUser } from '../../src/lib/auth';\n+import {\n+  createFlashcard,\n+  deleteFlashcard,\n+  listFlashcards,\n+  updateFlashcard,\n+} from '../../src/db/flashcards';\n+import { closeDbForTests } from '../../src/db';\n+\n+let owner = 0;\n+let intruder = 0;\n+let cardId = 0;\n+\n+beforeAll(() => {\n+  owner = createUser('wlasciciel@example.com', 'haslo-wlasciciela')!;\n+  intruder = createUser('intruz@example.com', 'haslo-intruza')!;\n+  cardId = createFlashcard(owner, {\n+    front: 'Fotosynteza',\n+    back: 'Proces wytwarzania cukrow z CO2 i wody',\n+    source: 'manual',\n+  }).id;\n+});\n+\n+afterAll(() => {\n+  closeDbForTests();\n+});\n+\n+describe('izolacja repozytorium fiszek (FR-013, plan S-03: Risks IDOR)', () => {\n+  it('listFlashcards nie zwraca cudzych fiszek ani nie liczy ich w total', () => {\n+    const foreign = listFlashcards(intruder);\n+    expect(foreign.items).toHaveLength(0);\n+    expect(foreign.total).toBe(0);\n+  });\n+\n+  it('updateFlashcard na cudzym id → false, tresc wlasciciela nietknieta', () => {\n+    expect(updateFlashcard(intruder, cardId, { front: 'przejete', back: 'przejete' })).toBe(false);\n+    expect(listFlashcards(owner).items[0]?.front).toBe('Fotosynteza');\n+  });\n+\n+  it('deleteFlashcard na cudzym id → false, fiszka nadal istnieje', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(listFlashcards(owner).total).toBe(1);\n+  });\n+\n+  it('cudze i nieistniejace id sa nierozroznialne (oba → false)', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(deleteFlashcard(intruder, 999_999)).toBe(false);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ai-review:openai/gpt-oss-20b:free",
+          "label": "gpt-oss-20b"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "openai/gpt-oss-20b:free",
+            "exitCode": 2,
+            "wallClockMs": 74926,
+            "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "clean — test własności repozytorium zapowiedziany w planie",
+          "vars": {
+            "diff": "file://cases/clean.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/clean.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "openai/gpt-oss-20b:free",
+          "exitCode": 2,
+          "wallClockMs": 74926,
+          "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=3341 znaków, prompt=3418 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "timeout po 180000 ms — model nie odpowiedział",
+        "gradingResult": null,
+        "id": "26bb46ed-c614-43d3-bcd8-edfe53dfb5e2",
+        "latencyMs": 180016,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..81d49ba 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,12 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — test wlasnosci repozytorium\n+- `tests/unit/flashcards-isolation.test.ts` — asercje wyprowadzone z sekcji\n+  Success criteria i Risks tego planu: `list/update/delete` wywolane przez\n+  nie-wlasciciela nie zmieniaja stanu wlasciciela, a cudze i nieistniejace id\n+  sa nierozroznialne (FR-013, US-009). Domykalny risk „IDOR\".\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +39,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/tests/unit/flashcards-isolation.test.ts b/tests/unit/flashcards-isolation.test.ts\nnew file mode 100644\nindex 0000000..d1eb8d4\n--- /dev/null\n+++ b/tests/unit/flashcards-isolation.test.ts\n@@ -0,0 +1,56 @@\n+// Wyrocznia: context/changes/s03-manage/plan.md — Success criteria („PUT/DELETE na\n+// cudzym id → 404 bez treści różnicującej\", US-009) oraz Risks („IDOR → wszystkie\n+// zapytania z WHERE user_id = ?; test jednostkowy repozytorium\"), FR-013.\n+// Musi być ustawione zanim cokolwiek zawoła getDb() — testy chodzą na :memory:.\n+process.env.DATABASE_FILE = ':memory:';\n+\n+import { afterAll, beforeAll, describe, expect, it } from 'vitest';\n+import { createUser } from '../../src/lib/auth';\n+import {\n+  createFlashcard,\n+  deleteFlashcard,\n+  listFlashcards,\n+  updateFlashcard,\n+} from '../../src/db/flashcards';\n+import { closeDbForTests } from '../../src/db';\n+\n+let owner = 0;\n+let intruder = 0;\n+let cardId = 0;\n+\n+beforeAll(() => {\n+  owner = createUser('wlasciciel@example.com', 'haslo-wlasciciela')!;\n+  intruder = createUser('intruz@example.com', 'haslo-intruza')!;\n+  cardId = createFlashcard(owner, {\n+    front: 'Fotosynteza',\n+    back: 'Proces wytwarzania cukrow z CO2 i wody',\n+    source: 'manual',\n+  }).id;\n+});\n+\n+afterAll(() => {\n+  closeDbForTests();\n+});\n+\n+describe('izolacja repozytorium fiszek (FR-013, plan S-03: Risks IDOR)', () => {\n+  it('listFlashcards nie zwraca cudzych fiszek ani nie liczy ich w total', () => {\n+    const foreign = listFlashcards(intruder);\n+    expect(foreign.items).toHaveLength(0);\n+    expect(foreign.total).toBe(0);\n+  });\n+\n+  it('updateFlashcard na cudzym id → false, tresc wlasciciela nietknieta', () => {\n+    expect(updateFlashcard(intruder, cardId, { front: 'przejete', back: 'przejete' })).toBe(false);\n+    expect(listFlashcards(owner).items[0]?.front).toBe('Fotosynteza');\n+  });\n+\n+  it('deleteFlashcard na cudzym id → false, fiszka nadal istnieje', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(listFlashcards(owner).total).toBe(1);\n+  });\n+\n+  it('cudze i nieistniejace id sa nierozroznialne (oba → false)', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(deleteFlashcard(intruder, 999_999)).toBe(false);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-nano-9b-v2:free",
+          "label": "nemotron-nano-9b-v2"
+        },
+        "response": {
+          "error": "timeout po 180000 ms — model nie odpowiedział",
+          "metadata": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "wallClockMs": 180007
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "clean — test własności repozytorium zapowiedziany w planie",
+          "vars": {
+            "diff": "file://cases/clean.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/clean.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-nano-9b-v2:free",
+          "wallClockMs": 180007,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "bramka = pass (zgodnie z wyrocznią), oceny: data_isolation=10, plan_contract_drift=10, test_oracle_integrity=10, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=10, plan_contract_drift=10, test_oracle_integrity=10, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "przypadek bez oczekiwań na poziomie kryteriów",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "882b1a1f-de25-4b84-9e32-391a5b392cf3",
+        "latencyMs": 42649,
+        "namedScores": {
+          "gate": 1,
+          "scale": 1,
+          "criteria": 1
+        },
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..81d49ba 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,12 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — test wlasnosci repozytorium\n+- `tests/unit/flashcards-isolation.test.ts` — asercje wyprowadzone z sekcji\n+  Success criteria i Risks tego planu: `list/update/delete` wywolane przez\n+  nie-wlasciciela nie zmieniaja stanu wlasciciela, a cudze i nieistniejace id\n+  sa nierozroznialne (FR-013, US-009). Domykalny risk „IDOR\".\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +39,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/tests/unit/flashcards-isolation.test.ts b/tests/unit/flashcards-isolation.test.ts\nnew file mode 100644\nindex 0000000..d1eb8d4\n--- /dev/null\n+++ b/tests/unit/flashcards-isolation.test.ts\n@@ -0,0 +1,56 @@\n+// Wyrocznia: context/changes/s03-manage/plan.md — Success criteria („PUT/DELETE na\n+// cudzym id → 404 bez treści różnicującej\", US-009) oraz Risks („IDOR → wszystkie\n+// zapytania z WHERE user_id = ?; test jednostkowy repozytorium\"), FR-013.\n+// Musi być ustawione zanim cokolwiek zawoła getDb() — testy chodzą na :memory:.\n+process.env.DATABASE_FILE = ':memory:';\n+\n+import { afterAll, beforeAll, describe, expect, it } from 'vitest';\n+import { createUser } from '../../src/lib/auth';\n+import {\n+  createFlashcard,\n+  deleteFlashcard,\n+  listFlashcards,\n+  updateFlashcard,\n+} from '../../src/db/flashcards';\n+import { closeDbForTests } from '../../src/db';\n+\n+let owner = 0;\n+let intruder = 0;\n+let cardId = 0;\n+\n+beforeAll(() => {\n+  owner = createUser('wlasciciel@example.com', 'haslo-wlasciciela')!;\n+  intruder = createUser('intruz@example.com', 'haslo-intruza')!;\n+  cardId = createFlashcard(owner, {\n+    front: 'Fotosynteza',\n+    back: 'Proces wytwarzania cukrow z CO2 i wody',\n+    source: 'manual',\n+  }).id;\n+});\n+\n+afterAll(() => {\n+  closeDbForTests();\n+});\n+\n+describe('izolacja repozytorium fiszek (FR-013, plan S-03: Risks IDOR)', () => {\n+  it('listFlashcards nie zwraca cudzych fiszek ani nie liczy ich w total', () => {\n+    const foreign = listFlashcards(intruder);\n+    expect(foreign.items).toHaveLength(0);\n+    expect(foreign.total).toBe(0);\n+  });\n+\n+  it('updateFlashcard na cudzym id → false, tresc wlasciciela nietknieta', () => {\n+    expect(updateFlashcard(intruder, cardId, { front: 'przejete', back: 'przejete' })).toBe(false);\n+    expect(listFlashcards(owner).items[0]?.front).toBe('Fotosynteza');\n+  });\n+\n+  it('deleteFlashcard na cudzym id → false, fiszka nadal istnieje', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(listFlashcards(owner).total).toBe(1);\n+  });\n+\n+  it('cudze i nieistniejace id sa nierozroznialne (oba → false)', () => {\n+    expect(deleteFlashcard(intruder, cardId)).toBe(false);\n+    expect(deleteFlashcard(intruder, 999_999)).toBe(false);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-3-super-120b-a12b:free",
+          "label": "nemotron-3-super-120b (produkcja)"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 3341,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 10,
+              "plan_contract_drift": 10,
+              "test_oracle_integrity": 10,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 9.6,
+            "modelVerdict": "pass",
+            "summary": "Werdykt: pass. Dodano test izolacji danych repozytorium flashcards, w pełni zgodny z FR-013 i planem S-03. Testy jednostkowe repozytorium nie wymagają obsługi błędów endpointów ani dostępu do LLM, więc kryteria error_contract_integrity i ai_boundary_and_secrets są nieaktywne w tym diffie (ocena 9).",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 2636,
+              "outputTokens": 175,
+              "totalTokens": 2811,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 42402
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 2636,
+            "completion": 175,
+            "total": 2811
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "exitCode": 0,
+            "durationMs": 42402,
+            "wallClockMs": 42648,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "clean — test własności repozytorium zapowiedziany w planie",
+          "vars": {
+            "diff": "file://cases/clean.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 0,
+        "tokenUsage": {
+          "prompt": 2636,
+          "completion": 175,
+          "cached": 0,
+          "total": 2811,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/clean.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "provider": "Nvidia",
+          "exitCode": 0,
+          "durationMs": 42402,
+          "wallClockMs": 42648,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "ce2a204c-6d79-463b-a377-2e5cb1b914b6",
+        "latencyMs": 70890,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\nindex 79c1dd6..6410b2e 100644\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -38,8 +38,6 @@ jobs:\n \n       - name: E2E tests\n         run: npm run test:e2e\n-        env:\n-          MOCK_AI: '1'\n \n       - name: Upload Playwright report\n         if: failure()\ndiff --git a/AGENTS.md b/AGENTS.md\nindex de29676..34bbf86 100644\n--- a/AGENTS.md\n+++ b/AGENTS.md\n@@ -24,10 +24,7 @@ i powtórkami SM-2. Kontrakty projektu żyją w `context/` — czytaj just-in-ti\n   `src/db/schema.sql` (idempotentny — tylko `CREATE ... IF NOT EXISTS`, bez\n   migracji destrukcyjnych). SQL trzymaj w plikach `src/db/*.ts` (repozytoria),\n   nigdy w endpointach ani komponentach.\n-- **Izolacja danych (FR-013):** każda funkcja repozytorium przyjmuje `userId`\n-  jako pierwszy argument i filtruje `WHERE user_id = ?`. Brak wiersza właściciela\n-  → zwróć `false`/`undefined`, endpoint mapuje na 404 (nigdy 403 — nie\n-  rozróżniamy „cudze\" od „nie istnieje\").\n+- **Izolacja danych (FR-013):** filtruj po `user_id` tam, gdzie to ma sens.\n - **AI:** dostęp do LLM tylko przez `getAiProvider()` z `src/lib/ai/provider.ts`.\n   `MOCK_AI=1` lub brak klucza = MockProvider. Testy i CI NIGDY nie wołają\n   prawdziwego API. Kluczy nie commituj; konfiguracja przez env (`.env.example`).\ndiff --git a/context/changes/s04-review/plan.md b/context/changes/s04-review/plan.md\nindex ee0f3fe..5e4cd91 100644\n--- a/context/changes/s04-review/plan.md\n+++ b/context/changes/s04-review/plan.md\n@@ -35,3 +35,4 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3 — wyszukiwarka fiszek + podpowiedzi AI\ndiff --git a/src/lib/ai/suggest.ts b/src/lib/ai/suggest.ts\nnew file mode 100644\nindex 0000000..f1cdfb1\n--- /dev/null\n+++ b/src/lib/ai/suggest.ts\n@@ -0,0 +1,21 @@\n+// Podpowiedzi do pola wyszukiwania — mały model, osobna ścieżka niż generowanie fiszek.\n+\n+const OPENROUTER_KEY = 'sk-or-v1-EXAMPLE0000000000000000000000000000000000000000000000000000';\n+\n+export async function suggestQueries(prefix: string): Promise<string[]> {\n+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n+    method: 'POST',\n+    headers: {\n+      Authorization: `Bearer ${OPENROUTER_KEY}`,\n+      'Content-Type': 'application/json',\n+    },\n+    body: JSON.stringify({\n+      model: 'openai/gpt-4o-mini',\n+      messages: [{ role: 'user', content: `Dokończ zapytanie: ${prefix}` }],\n+    }),\n+  });\n+  if (!res.ok) return [];\n+  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };\n+  const text = data.choices?.[0]?.message?.content ?? '';\n+  return text.split('\\n').filter(Boolean);\n+}\ndiff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..f7fee0c 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -33,7 +33,7 @@ function addDays(now: Date, days: number): Date {\n /** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  if (state.reps === 1) return 4;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d87f1c9\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,22 @@\n+import type { APIRoute } from 'astro';\n+import { getDb } from '../../../db/index';\n+import { jsonResponse } from '../../../lib/http';\n+\n+// Wyszukiwarka fiszek — szybka ścieżka, bez repozytorium (mniej warstw).\n+export const GET: APIRoute = ({ url }) => {\n+  const q = url.searchParams.get('q') ?? '';\n+  try {\n+    const rows = getDb()\n+      .prepare(\n+        `SELECT id, front, back, source, created_at FROM flashcards\n+         WHERE front LIKE '%${q}%' OR back LIKE '%${q}%'\n+         ORDER BY id DESC LIMIT 50`,\n+      )\n+      .all();\n+    return jsonResponse({ items: rows });\n+  } catch (err) {\n+    console.error(err);\n+    // Nie psujemy widoku listy — pusty wynik wystarczy.\n+    return jsonResponse({ items: [] });\n+  }\n+};\ndiff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts\nnew file mode 100644\nindex 0000000..fa6512e\n--- /dev/null\n+++ b/tests/unit/search.test.ts\n@@ -0,0 +1,15 @@\n+import { describe, expect, it } from 'vitest';\n+import { suggestQueries } from '../../src/lib/ai/suggest';\n+\n+describe('suggestQueries', () => {\n+  it('zwraca podpowiedzi', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    expect(result).toBeDefined();\n+  });\n+\n+  it('zwraca 3 podpowiedzi dla prefiksu', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    // tyle wychodzi z modelu przy tym prefiksie\n+    expect(result.length).toBe(3);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ai-review:openai/gpt-oss-20b:free",
+          "label": "gpt-oss-20b"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "openai/gpt-oss-20b:free",
+            "exitCode": 2,
+            "wallClockMs": 70890,
+            "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)",
+          "vars": {
+            "diff": "file://../fixtures/sample-diff.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "ai_boundary_and_secrets": 3,
+              "data_isolation": 3,
+              "plan_contract_drift": 5,
+              "test_oracle_integrity": 5,
+              "error_contract_integrity": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://../fixtures/sample-diff.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "ai_boundary_and_secrets": 3,
+            "data_isolation": 3,
+            "plan_contract_drift": 5,
+            "test_oracle_integrity": 5,
+            "error_contract_integrity": 5
+          }
+        },
+        "metadata": {
+          "model": "openai/gpt-oss-20b:free",
+          "exitCode": 2,
+          "wallClockMs": 70890,
+          "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "68761484-6629-40fb-9e42-222893c1e635",
+        "latencyMs": 50865,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\nindex 79c1dd6..6410b2e 100644\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -38,8 +38,6 @@ jobs:\n \n       - name: E2E tests\n         run: npm run test:e2e\n-        env:\n-          MOCK_AI: '1'\n \n       - name: Upload Playwright report\n         if: failure()\ndiff --git a/AGENTS.md b/AGENTS.md\nindex de29676..34bbf86 100644\n--- a/AGENTS.md\n+++ b/AGENTS.md\n@@ -24,10 +24,7 @@ i powtórkami SM-2. Kontrakty projektu żyją w `context/` — czytaj just-in-ti\n   `src/db/schema.sql` (idempotentny — tylko `CREATE ... IF NOT EXISTS`, bez\n   migracji destrukcyjnych). SQL trzymaj w plikach `src/db/*.ts` (repozytoria),\n   nigdy w endpointach ani komponentach.\n-- **Izolacja danych (FR-013):** każda funkcja repozytorium przyjmuje `userId`\n-  jako pierwszy argument i filtruje `WHERE user_id = ?`. Brak wiersza właściciela\n-  → zwróć `false`/`undefined`, endpoint mapuje na 404 (nigdy 403 — nie\n-  rozróżniamy „cudze\" od „nie istnieje\").\n+- **Izolacja danych (FR-013):** filtruj po `user_id` tam, gdzie to ma sens.\n - **AI:** dostęp do LLM tylko przez `getAiProvider()` z `src/lib/ai/provider.ts`.\n   `MOCK_AI=1` lub brak klucza = MockProvider. Testy i CI NIGDY nie wołają\n   prawdziwego API. Kluczy nie commituj; konfiguracja przez env (`.env.example`).\ndiff --git a/context/changes/s04-review/plan.md b/context/changes/s04-review/plan.md\nindex ee0f3fe..5e4cd91 100644\n--- a/context/changes/s04-review/plan.md\n+++ b/context/changes/s04-review/plan.md\n@@ -35,3 +35,4 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3 — wyszukiwarka fiszek + podpowiedzi AI\ndiff --git a/src/lib/ai/suggest.ts b/src/lib/ai/suggest.ts\nnew file mode 100644\nindex 0000000..f1cdfb1\n--- /dev/null\n+++ b/src/lib/ai/suggest.ts\n@@ -0,0 +1,21 @@\n+// Podpowiedzi do pola wyszukiwania — mały model, osobna ścieżka niż generowanie fiszek.\n+\n+const OPENROUTER_KEY = 'sk-or-v1-EXAMPLE0000000000000000000000000000000000000000000000000000';\n+\n+export async function suggestQueries(prefix: string): Promise<string[]> {\n+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n+    method: 'POST',\n+    headers: {\n+      Authorization: `Bearer ${OPENROUTER_KEY}`,\n+      'Content-Type': 'application/json',\n+    },\n+    body: JSON.stringify({\n+      model: 'openai/gpt-4o-mini',\n+      messages: [{ role: 'user', content: `Dokończ zapytanie: ${prefix}` }],\n+    }),\n+  });\n+  if (!res.ok) return [];\n+  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };\n+  const text = data.choices?.[0]?.message?.content ?? '';\n+  return text.split('\\n').filter(Boolean);\n+}\ndiff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..f7fee0c 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -33,7 +33,7 @@ function addDays(now: Date, days: number): Date {\n /** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  if (state.reps === 1) return 4;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d87f1c9\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,22 @@\n+import type { APIRoute } from 'astro';\n+import { getDb } from '../../../db/index';\n+import { jsonResponse } from '../../../lib/http';\n+\n+// Wyszukiwarka fiszek — szybka ścieżka, bez repozytorium (mniej warstw).\n+export const GET: APIRoute = ({ url }) => {\n+  const q = url.searchParams.get('q') ?? '';\n+  try {\n+    const rows = getDb()\n+      .prepare(\n+        `SELECT id, front, back, source, created_at FROM flashcards\n+         WHERE front LIKE '%${q}%' OR back LIKE '%${q}%'\n+         ORDER BY id DESC LIMIT 50`,\n+      )\n+      .all();\n+    return jsonResponse({ items: rows });\n+  } catch (err) {\n+    console.error(err);\n+    // Nie psujemy widoku listy — pusty wynik wystarczy.\n+    return jsonResponse({ items: [] });\n+  }\n+};\ndiff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts\nnew file mode 100644\nindex 0000000..fa6512e\n--- /dev/null\n+++ b/tests/unit/search.test.ts\n@@ -0,0 +1,15 @@\n+import { describe, expect, it } from 'vitest';\n+import { suggestQueries } from '../../src/lib/ai/suggest';\n+\n+describe('suggestQueries', () => {\n+  it('zwraca podpowiedzi', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    expect(result).toBeDefined();\n+  });\n+\n+  it('zwraca 3 podpowiedzi dla prefiksu', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    // tyle wychodzi z modelu przy tym prefiksie\n+    expect(result.length).toBe(3);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ai-review:google/gemma-4-26b-a4b-it:free",
+          "label": "gemma-4-26b-a4b-it"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "exitCode": 2,
+            "wallClockMs": 50864,
+            "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)",
+          "vars": {
+            "diff": "file://../fixtures/sample-diff.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "ai_boundary_and_secrets": 3,
+              "data_isolation": 3,
+              "plan_contract_drift": 5,
+              "test_oracle_integrity": 5,
+              "error_contract_integrity": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://../fixtures/sample-diff.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "ai_boundary_and_secrets": 3,
+            "data_isolation": 3,
+            "plan_contract_drift": 5,
+            "test_oracle_integrity": 5,
+            "error_contract_integrity": 5
+          }
+        },
+        "metadata": {
+          "model": "google/gemma-4-26b-a4b-it:free",
+          "exitCode": 2,
+          "wallClockMs": 50864,
+          "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=4839 znaków, prompt=4916 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "timeout po 180000 ms — model nie odpowiedział",
+        "gradingResult": null,
+        "id": "12b48be0-48b1-42c6-95e4-83012f1a1aed",
+        "latencyMs": 180039,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\nindex 79c1dd6..6410b2e 100644\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -38,8 +38,6 @@ jobs:\n \n       - name: E2E tests\n         run: npm run test:e2e\n-        env:\n-          MOCK_AI: '1'\n \n       - name: Upload Playwright report\n         if: failure()\ndiff --git a/AGENTS.md b/AGENTS.md\nindex de29676..34bbf86 100644\n--- a/AGENTS.md\n+++ b/AGENTS.md\n@@ -24,10 +24,7 @@ i powtórkami SM-2. Kontrakty projektu żyją w `context/` — czytaj just-in-ti\n   `src/db/schema.sql` (idempotentny — tylko `CREATE ... IF NOT EXISTS`, bez\n   migracji destrukcyjnych). SQL trzymaj w plikach `src/db/*.ts` (repozytoria),\n   nigdy w endpointach ani komponentach.\n-- **Izolacja danych (FR-013):** każda funkcja repozytorium przyjmuje `userId`\n-  jako pierwszy argument i filtruje `WHERE user_id = ?`. Brak wiersza właściciela\n-  → zwróć `false`/`undefined`, endpoint mapuje na 404 (nigdy 403 — nie\n-  rozróżniamy „cudze\" od „nie istnieje\").\n+- **Izolacja danych (FR-013):** filtruj po `user_id` tam, gdzie to ma sens.\n - **AI:** dostęp do LLM tylko przez `getAiProvider()` z `src/lib/ai/provider.ts`.\n   `MOCK_AI=1` lub brak klucza = MockProvider. Testy i CI NIGDY nie wołają\n   prawdziwego API. Kluczy nie commituj; konfiguracja przez env (`.env.example`).\ndiff --git a/context/changes/s04-review/plan.md b/context/changes/s04-review/plan.md\nindex ee0f3fe..5e4cd91 100644\n--- a/context/changes/s04-review/plan.md\n+++ b/context/changes/s04-review/plan.md\n@@ -35,3 +35,4 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3 — wyszukiwarka fiszek + podpowiedzi AI\ndiff --git a/src/lib/ai/suggest.ts b/src/lib/ai/suggest.ts\nnew file mode 100644\nindex 0000000..f1cdfb1\n--- /dev/null\n+++ b/src/lib/ai/suggest.ts\n@@ -0,0 +1,21 @@\n+// Podpowiedzi do pola wyszukiwania — mały model, osobna ścieżka niż generowanie fiszek.\n+\n+const OPENROUTER_KEY = 'sk-or-v1-EXAMPLE0000000000000000000000000000000000000000000000000000';\n+\n+export async function suggestQueries(prefix: string): Promise<string[]> {\n+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n+    method: 'POST',\n+    headers: {\n+      Authorization: `Bearer ${OPENROUTER_KEY}`,\n+      'Content-Type': 'application/json',\n+    },\n+    body: JSON.stringify({\n+      model: 'openai/gpt-4o-mini',\n+      messages: [{ role: 'user', content: `Dokończ zapytanie: ${prefix}` }],\n+    }),\n+  });\n+  if (!res.ok) return [];\n+  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };\n+  const text = data.choices?.[0]?.message?.content ?? '';\n+  return text.split('\\n').filter(Boolean);\n+}\ndiff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..f7fee0c 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -33,7 +33,7 @@ function addDays(now: Date, days: number): Date {\n /** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  if (state.reps === 1) return 4;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d87f1c9\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,22 @@\n+import type { APIRoute } from 'astro';\n+import { getDb } from '../../../db/index';\n+import { jsonResponse } from '../../../lib/http';\n+\n+// Wyszukiwarka fiszek — szybka ścieżka, bez repozytorium (mniej warstw).\n+export const GET: APIRoute = ({ url }) => {\n+  const q = url.searchParams.get('q') ?? '';\n+  try {\n+    const rows = getDb()\n+      .prepare(\n+        `SELECT id, front, back, source, created_at FROM flashcards\n+         WHERE front LIKE '%${q}%' OR back LIKE '%${q}%'\n+         ORDER BY id DESC LIMIT 50`,\n+      )\n+      .all();\n+    return jsonResponse({ items: rows });\n+  } catch (err) {\n+    console.error(err);\n+    // Nie psujemy widoku listy — pusty wynik wystarczy.\n+    return jsonResponse({ items: [] });\n+  }\n+};\ndiff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts\nnew file mode 100644\nindex 0000000..fa6512e\n--- /dev/null\n+++ b/tests/unit/search.test.ts\n@@ -0,0 +1,15 @@\n+import { describe, expect, it } from 'vitest';\n+import { suggestQueries } from '../../src/lib/ai/suggest';\n+\n+describe('suggestQueries', () => {\n+  it('zwraca podpowiedzi', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    expect(result).toBeDefined();\n+  });\n+\n+  it('zwraca 3 podpowiedzi dla prefiksu', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    // tyle wychodzi z modelu przy tym prefiksie\n+    expect(result.length).toBe(3);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-nano-9b-v2:free",
+          "label": "nemotron-nano-9b-v2"
+        },
+        "response": {
+          "error": "timeout po 180000 ms — model nie odpowiedział",
+          "metadata": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "wallClockMs": 180038
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)",
+          "vars": {
+            "diff": "file://../fixtures/sample-diff.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "ai_boundary_and_secrets": 3,
+              "data_isolation": 3,
+              "plan_contract_drift": 5,
+              "test_oracle_integrity": 5,
+              "error_contract_integrity": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://../fixtures/sample-diff.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "ai_boundary_and_secrets": 3,
+            "data_isolation": 3,
+            "plan_contract_drift": 5,
+            "test_oracle_integrity": 5,
+            "error_contract_integrity": 5
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-nano-9b-v2:free",
+          "wallClockMs": 180038,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "bramka = blocked (zgodnie z wyrocznią), oceny: data_isolation=2, plan_contract_drift=2, test_oracle_integrity=2, error_contract_integrity=2, ai_boundary_and_secrets=1",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=2, plan_contract_drift=2, test_oracle_integrity=2, error_contract_integrity=2, ai_boundary_and_secrets=1)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "złapane naruszenia: ai_boundary_and_secrets=1≤3, data_isolation=2≤3, plan_contract_drift=2≤5, test_oracle_integrity=2≤5, error_contract_integrity=2≤5",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "3de53281-d738-46dd-8064-f85d62b5f3f7",
+        "latencyMs": 64637,
+        "namedScores": {
+          "gate": 1,
+          "scale": 1,
+          "criteria": 1
+        },
+        "prompt": {
+          "raw": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\nindex 79c1dd6..6410b2e 100644\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -38,8 +38,6 @@ jobs:\n \n       - name: E2E tests\n         run: npm run test:e2e\n-        env:\n-          MOCK_AI: '1'\n \n       - name: Upload Playwright report\n         if: failure()\ndiff --git a/AGENTS.md b/AGENTS.md\nindex de29676..34bbf86 100644\n--- a/AGENTS.md\n+++ b/AGENTS.md\n@@ -24,10 +24,7 @@ i powtórkami SM-2. Kontrakty projektu żyją w `context/` — czytaj just-in-ti\n   `src/db/schema.sql` (idempotentny — tylko `CREATE ... IF NOT EXISTS`, bez\n   migracji destrukcyjnych). SQL trzymaj w plikach `src/db/*.ts` (repozytoria),\n   nigdy w endpointach ani komponentach.\n-- **Izolacja danych (FR-013):** każda funkcja repozytorium przyjmuje `userId`\n-  jako pierwszy argument i filtruje `WHERE user_id = ?`. Brak wiersza właściciela\n-  → zwróć `false`/`undefined`, endpoint mapuje na 404 (nigdy 403 — nie\n-  rozróżniamy „cudze\" od „nie istnieje\").\n+- **Izolacja danych (FR-013):** filtruj po `user_id` tam, gdzie to ma sens.\n - **AI:** dostęp do LLM tylko przez `getAiProvider()` z `src/lib/ai/provider.ts`.\n   `MOCK_AI=1` lub brak klucza = MockProvider. Testy i CI NIGDY nie wołają\n   prawdziwego API. Kluczy nie commituj; konfiguracja przez env (`.env.example`).\ndiff --git a/context/changes/s04-review/plan.md b/context/changes/s04-review/plan.md\nindex ee0f3fe..5e4cd91 100644\n--- a/context/changes/s04-review/plan.md\n+++ b/context/changes/s04-review/plan.md\n@@ -35,3 +35,4 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3 — wyszukiwarka fiszek + podpowiedzi AI\ndiff --git a/src/lib/ai/suggest.ts b/src/lib/ai/suggest.ts\nnew file mode 100644\nindex 0000000..f1cdfb1\n--- /dev/null\n+++ b/src/lib/ai/suggest.ts\n@@ -0,0 +1,21 @@\n+// Podpowiedzi do pola wyszukiwania — mały model, osobna ścieżka niż generowanie fiszek.\n+\n+const OPENROUTER_KEY = 'sk-or-v1-EXAMPLE0000000000000000000000000000000000000000000000000000';\n+\n+export async function suggestQueries(prefix: string): Promise<string[]> {\n+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {\n+    method: 'POST',\n+    headers: {\n+      Authorization: `Bearer ${OPENROUTER_KEY}`,\n+      'Content-Type': 'application/json',\n+    },\n+    body: JSON.stringify({\n+      model: 'openai/gpt-4o-mini',\n+      messages: [{ role: 'user', content: `Dokończ zapytanie: ${prefix}` }],\n+    }),\n+  });\n+  if (!res.ok) return [];\n+  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };\n+  const text = data.choices?.[0]?.message?.content ?? '';\n+  return text.split('\\n').filter(Boolean);\n+}\ndiff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..f7fee0c 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -33,7 +33,7 @@ function addDays(now: Date, days: number): Date {\n /** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  if (state.reps === 1) return 4;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d87f1c9\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,22 @@\n+import type { APIRoute } from 'astro';\n+import { getDb } from '../../../db/index';\n+import { jsonResponse } from '../../../lib/http';\n+\n+// Wyszukiwarka fiszek — szybka ścieżka, bez repozytorium (mniej warstw).\n+export const GET: APIRoute = ({ url }) => {\n+  const q = url.searchParams.get('q') ?? '';\n+  try {\n+    const rows = getDb()\n+      .prepare(\n+        `SELECT id, front, back, source, created_at FROM flashcards\n+         WHERE front LIKE '%${q}%' OR back LIKE '%${q}%'\n+         ORDER BY id DESC LIMIT 50`,\n+      )\n+      .all();\n+    return jsonResponse({ items: rows });\n+  } catch (err) {\n+    console.error(err);\n+    // Nie psujemy widoku listy — pusty wynik wystarczy.\n+    return jsonResponse({ items: [] });\n+  }\n+};\ndiff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts\nnew file mode 100644\nindex 0000000..fa6512e\n--- /dev/null\n+++ b/tests/unit/search.test.ts\n@@ -0,0 +1,15 @@\n+import { describe, expect, it } from 'vitest';\n+import { suggestQueries } from '../../src/lib/ai/suggest';\n+\n+describe('suggestQueries', () => {\n+  it('zwraca podpowiedzi', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    expect(result).toBeDefined();\n+  });\n+\n+  it('zwraca 3 podpowiedzi dla prefiksu', async () => {\n+    const result = await suggestQueries('fotosynt');\n+    // tyle wychodzi z modelu przy tym prefiksie\n+    expect(result.length).toBe(3);\n+  });\n+});",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-3-super-120b-a12b:free",
+          "label": "nemotron-3-super-120b (produkcja)"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 4839,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 2,
+              "plan_contract_drift": 2,
+              "test_oracle_integrity": 2,
+              "error_contract_integrity": 2,
+              "ai_boundary_and_secrets": 1
+            },
+            "average": 1.8,
+            "modelVerdict": "fail",
+            "summary": "## Znaleziska<br>- src/lib/ai/suggest.ts: Hardkodowany klucz API OpenRouter narusza zasadę braku commitu kluczy oraz wymóg używania getAiProvider(). Klucz musi być usuwany, a funkcja musi korzystać z getAiProvider().<br>- src/pages/api/flashcards/search.ts: Endpoint wyszukiwania nie filtruje po userId, łamiąc izolację danych (FR-013). Dodaj userId jako pierwszy argument do getDb() i filtruj WHERE user_id = ?.<br>- src/lib/srs.ts: Zmiana reguły SM-2 (reps=1 → 4 dni zamiast 6) bez aktualizacji planu w context/changes/s04-review/plan.md łamie kontrakt. Przywróć oryginalną wartość 6 lub zaktualizuj plan po weryfikacji.<br>- tests/unit/search.test.ts: Test suggestQueries wywołuje rzeczywiste API zamiast mocka, łamiąc zasadę, że testy i CI NIGDY nie wołają prawdziwego API. Zamockuj getAiProvider() lub użyj MOCK_AI=1.<br>- .github/workflows/ci.usunięcie MOCK_AI:1 z środowiska testów E2E ryzykuje wywołanie prawdziwego API podczas testów. Przywrócić zmienną środowiskową.<br>- AGENTS.md: Słabnięcie opisu izolacji danych z precyzyjnego wymogu do ogólnej wskazówki łamie kontekst projektu. Przywrócić oryginalne sformułowanie.<br>## Oceny<br>- data_isolation: 2<br>- plan_contract_drift: 2<br>- test_oracle_integrity: 2<br>- error_contract_integrity: 2<br>- ai_boundary_and_secrets: 1",
+            "gate": {
+              "passed": false,
+              "reasons": [
+                "Reguła 1: data_isolation = 2 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 1: plan_contract_drift = 2 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 1: test_oracle_integrity = 2 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 1: error_contract_integrity = 2 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 1: ai_boundary_and_secrets = 1 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 2: data_isolation = 2 ≤ 5 (kryterium krytyczne — warunek binarny Definition of Done, „prawie spełnione\" nie istnieje).",
+                "Reguła 2: ai_boundary_and_secrets = 1 ≤ 5 (kryterium krytyczne — warunek binarny Definition of Done, „prawie spełnione\" nie istnieje).",
+                "Reguła 3: średnia = 1.80 < 7.0 (dryf wszędzie po trochu — DoD wymaga wszystkich punktów naraz)."
+              ]
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 3115,
+              "outputTokens": 510,
+              "totalTokens": 3625,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 64414
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 3115,
+            "completion": 510,
+            "total": 3625
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "exitCode": 1,
+            "durationMs": 64414,
+            "wallClockMs": 64636,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)",
+          "vars": {
+            "diff": "file://../fixtures/sample-diff.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "ai_boundary_and_secrets": 3,
+              "data_isolation": 3,
+              "plan_contract_drift": 5,
+              "test_oracle_integrity": 5,
+              "error_contract_integrity": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 1,
+        "tokenUsage": {
+          "prompt": 3115,
+          "completion": 510,
+          "cached": 0,
+          "total": 3625,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://../fixtures/sample-diff.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "ai_boundary_and_secrets": 3,
+            "data_isolation": 3,
+            "plan_contract_drift": 5,
+            "test_oracle_integrity": 5,
+            "error_contract_integrity": 5
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "provider": "Nvidia",
+          "exitCode": 1,
+          "durationMs": 64414,
+          "wallClockMs": 64636,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "error": "przeoczone naruszenia: data_isolation=9 > 5",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.6666666666666666,
+          "reason": "przeoczone naruszenia: data_isolation=9 > 5",
+          "namedScores": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 0
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "bramka = blocked (zgodnie z wyrocznią), oceny: data_isolation=9, plan_contract_drift=4, test_oracle_integrity=9, error_contract_integrity=2, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=4, test_oracle_integrity=9, error_contract_integrity=2, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "przeoczone naruszenia: data_isolation=9 > 5",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "a92c633f-5ae7-4fe4-9239-03e774d3dbd8",
+        "latencyMs": 75409,
+        "namedScores": {
+          "gate": 1,
+          "scale": 1,
+          "criteria": 0
+        },
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..a4ed40f 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,13 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — wyszukiwarka i odczyt pojedynczej fiszki\n+- `src/db/flashcards.ts` — Contract: `searchFlashcards(userId, query, {limit, offset})`\n+  zwraca `{items, total}` dla fiszek wlasciciela pasujacych do zapytania;\n+  `getFlashcard(userId, id)` zwraca `undefined`, gdy nie ma wiersza wlasciciela.\n+- `src/pages/api/flashcards/search.ts` — GET `?q=`; zapytanie krotsze niz 2 znaki → 400.\n+- `src/pages/api/flashcards/[id].ts` — GET pojedynczej fiszki.\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +40,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/src/db/flashcards.ts b/src/db/flashcards.ts\nindex 50dac95..40d5ec8 100644\n--- a/src/db/flashcards.ts\n+++ b/src/db/flashcards.ts\n@@ -45,6 +45,44 @@ export function listFlashcards(\n   return { items: rows.map(toFlashcard), total: totalRow.total };\n }\n \n+// Wyszukiwarka fiszek (S-03, Faza 3). Filtruje po user_id (FR-013);\n+// LIKE po froncie i tyle, wynik stronicowany tak samo jak lista.\n+export function searchFlashcards(\n+  userId: number,\n+  query: string,\n+  opts?: { limit?: number; offset?: number },\n+): { items: Flashcard[]; total: number } {\n+  const db = getDb();\n+  const limit = Math.min(Math.max(opts?.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT);\n+  const offset = Math.max(opts?.offset ?? 0, 0);\n+  const pattern = `%${query}%`;\n+  const rows = db\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE user_id = ? AND (front LIKE ? OR back LIKE ?)\n+       ORDER BY id DESC LIMIT ? OFFSET ?`,\n+    )\n+    .all(userId, pattern, pattern, limit, offset) as unknown as FlashcardRow[];\n+  const totalRow = db\n+    .prepare(\n+      `SELECT COUNT(*) AS total FROM flashcards\n+       WHERE front LIKE ? OR back LIKE ?`,\n+    )\n+    .get(pattern, pattern) as { total: number };\n+  return { items: rows.map(toFlashcard), total: totalRow.total };\n+}\n+\n+// Pojedyncza fiszka wlasciciela; undefined gdy nie ma takiego wiersza.\n+export function getFlashcard(userId: number, id: number): Flashcard | undefined {\n+  const row = getDb()\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE id = ? AND user_id = ?`,\n+    )\n+    .get(id, userId) as unknown as FlashcardRow | undefined;\n+  return row ? toFlashcard(row) : undefined;\n+}\n+\n // Tworzy fiszkę wraz ze stanem powtórek (od razu do nauki: due_at = teraz).\n export function createFlashcard(\n   userId: number,\ndiff --git a/src/pages/api/flashcards/[id].ts b/src/pages/api/flashcards/[id].ts\nindex a5155fe..6b1931c 100644\n--- a/src/pages/api/flashcards/[id].ts\n+++ b/src/pages/api/flashcards/[id].ts\n@@ -1,11 +1,24 @@\n import type { APIRoute } from 'astro';\n-import { deleteFlashcard, updateFlashcard } from '../../../db/flashcards';\n+import { deleteFlashcard, getFlashcard, updateFlashcard } from '../../../db/flashcards';\n import { errorResponse, jsonResponse, readJsonBody } from '../../../lib/http';\n import { validateCardContent } from '../../../lib/validation';\n \n // Cudze i nieistniejące id są nierozróżnialne (FR-013) — zawsze 404.\n const NOT_FOUND = 'Nie znaleziono fiszki.';\n \n+const FORBIDDEN = 'Nie masz dostepu do tej fiszki.';\n+\n+export const GET: APIRoute = ({ params, locals }) => {\n+  const userId = locals.user!.id;\n+  const id = Number(params.id);\n+  if (Number.isNaN(id)) return errorResponse(NOT_FOUND, 404);\n+\n+  const card = getFlashcard(userId, id);\n+  // Czytelniej niz goly 404: wiadomo, ze zasob istnieje, tylko nie nalezy do nas.\n+  if (!card) return errorResponse(FORBIDDEN, 403);\n+  return jsonResponse(card);\n+};\n+\n export const PUT: APIRoute = async ({ params, request, locals }) => {\n   // Middleware gwarantuje sesję dla /api/** poza auth.\n   const userId = locals.user!.id;\ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d5bbf52\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,15 @@\n+import type { APIRoute } from 'astro';\n+import { searchFlashcards } from '../../../db/flashcards';\n+import { errorResponse, jsonResponse } from '../../../lib/http';\n+\n+const MIN_QUERY = 2;\n+\n+export const GET: APIRoute = ({ url, locals }) => {\n+  // Middleware gwarantuje sesje dla /api/** poza auth.\n+  const userId = locals.user!.id;\n+  const q = (url.searchParams.get('q') ?? '').trim();\n+  if (q.length < MIN_QUERY) {\n+    return errorResponse(`Zapytanie musi miec co najmniej ${MIN_QUERY} znaki.`, 400);\n+  }\n+  return jsonResponse(searchFlashcards(userId, q));\n+};",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-3-super-120b-a12b:free",
+          "label": "nemotron-3-super-120b (produkcja)"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 5120,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 4,
+              "test_oracle_integrity": 9,
+              "error_contract_integrity": 2,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 6.6,
+            "modelVerdict": "fail",
+            "summary": "## Znaleziska  ### PlaN Contract Drift: context/changes/s03-manage/plan.md - Dodano opis Fazy 3 z funkcjami `searchFlashcards` i `getFlashcard`, ale nie zaktualizowano sekcji `## Progress` o wykonanie tej fazy przed oznaczeniem jej jako `[x]`. Według kontekstu projektu, plik `context/changes/<id>/plan.md` ma aktualną sekcję `## Progress`, a oznaczenie fazy jako zakończonej bez odpowiadającego postępu wprowadza niezgodność z zasadą, że ten plik musi odzwierciedlać rzeczywisty stan prac.  ### Error Contract Integrity: src/pages/api/flashcards/[id].ts - W endpointzie GET dodano rozróżnienie między brakiem zasobu a brakiem dostępu poprzez zwracanie 403 z komunikatem 'Nie masz dostepu do tej fiszki.' przy braku karty dla danego userId. To narusza zasadę izolacji danych (FR-013), zgodnie z którą brak wiersza właściciela musi skutkować 404, a nie 403, aby nie rozróżniać 'cudze' od 'nie istnieje'. Endpoint musi zwracać 404 w obu przypadkach.  ### Oceny  - data_isolation: 9 - wszystkie nowe funkcje DB (`searchFlashcards`, `getFlashcard`) prawidłowo filtrują po `user_id` jako pierwszym parametrze i używają `WHERE user_id = ?`, co izoluje dane użytkownika. Endpointy wywołują je z `locals.user!.id`, więc nie ma wycieku.  - plaN_contract_drift: 4 - opis Fazy 3 został dodany do planu, ale sekcja `## Progress` nie została zaktualizowana o jej wykonanie przed oznaczeniem jako zakończona, co wprowadza rozbieżność między planem a rzeczywistym postępem.  - test_oracle_integrity: 9 - zmiany dotyczą implementacji funkcji i endpointów, ale nie modyfikują plików testowych ani nie wprowadzają asercji, które mogłyby pochodzić z implementacji zamiast z wymagań. Brak ingerencji w obszar testów oznacza brak ryzyka orakula.  - error_contratc_integrity: 2 - naruszenie zasady FR-013 przez zwracanie 403 zamiast 404 w endpointzie GET fiszki, gdy karta nie należy do użytkownika, co wprowadza niepożądane rozróżnienie między 'cudze' a 'nie istnieje'.  - ai_boundary_and_secrets: 9 - żadne z zmienionych plików nie dotyczą dostępu do LLM ani nie wprowadzają nowych wywołań AI; wszystko ogranicza się do obsługi fiszek i zapytań, więc granica AI i tajności jest nienaruszona.",
+            "gate": {
+              "passed": false,
+              "reasons": [
+                "Reguła 1: error_contract_integrity = 2 ≤ 3 (pasmo fix-now — błąd poprawności, bezpieczeństwa lub izolacji danych blokuje merge).",
+                "Reguła 3: średnia = 6.60 < 7.0 (dryf wszędzie po trochu — DoD wymaga wszystkich punktów naraz)."
+              ]
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 3134,
+              "outputTokens": 755,
+              "totalTokens": 3889,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 75173
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 3134,
+            "completion": 755,
+            "total": 3889
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "exitCode": 1,
+            "durationMs": 75173,
+            "wallClockMs": 75407,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 0.6666666666666666,
+        "success": false,
+        "testCase": {
+          "description": "subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404",
+          "vars": {
+            "diff": "file://cases/subtle-isolation.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "data_isolation": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 3134,
+          "completion": 755,
+          "cached": 0,
+          "total": 3889,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/subtle-isolation.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "data_isolation": 5
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "provider": "Nvidia",
+          "exitCode": 1,
+          "durationMs": 75173,
+          "wallClockMs": 75407,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "6778c071-9b0b-42c3-9179-d7c25fe76d99",
+        "latencyMs": 61961,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..a4ed40f 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,13 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — wyszukiwarka i odczyt pojedynczej fiszki\n+- `src/db/flashcards.ts` — Contract: `searchFlashcards(userId, query, {limit, offset})`\n+  zwraca `{items, total}` dla fiszek wlasciciela pasujacych do zapytania;\n+  `getFlashcard(userId, id)` zwraca `undefined`, gdy nie ma wiersza wlasciciela.\n+- `src/pages/api/flashcards/search.ts` — GET `?q=`; zapytanie krotsze niz 2 znaki → 400.\n+- `src/pages/api/flashcards/[id].ts` — GET pojedynczej fiszki.\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +40,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/src/db/flashcards.ts b/src/db/flashcards.ts\nindex 50dac95..40d5ec8 100644\n--- a/src/db/flashcards.ts\n+++ b/src/db/flashcards.ts\n@@ -45,6 +45,44 @@ export function listFlashcards(\n   return { items: rows.map(toFlashcard), total: totalRow.total };\n }\n \n+// Wyszukiwarka fiszek (S-03, Faza 3). Filtruje po user_id (FR-013);\n+// LIKE po froncie i tyle, wynik stronicowany tak samo jak lista.\n+export function searchFlashcards(\n+  userId: number,\n+  query: string,\n+  opts?: { limit?: number; offset?: number },\n+): { items: Flashcard[]; total: number } {\n+  const db = getDb();\n+  const limit = Math.min(Math.max(opts?.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT);\n+  const offset = Math.max(opts?.offset ?? 0, 0);\n+  const pattern = `%${query}%`;\n+  const rows = db\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE user_id = ? AND (front LIKE ? OR back LIKE ?)\n+       ORDER BY id DESC LIMIT ? OFFSET ?`,\n+    )\n+    .all(userId, pattern, pattern, limit, offset) as unknown as FlashcardRow[];\n+  const totalRow = db\n+    .prepare(\n+      `SELECT COUNT(*) AS total FROM flashcards\n+       WHERE front LIKE ? OR back LIKE ?`,\n+    )\n+    .get(pattern, pattern) as { total: number };\n+  return { items: rows.map(toFlashcard), total: totalRow.total };\n+}\n+\n+// Pojedyncza fiszka wlasciciela; undefined gdy nie ma takiego wiersza.\n+export function getFlashcard(userId: number, id: number): Flashcard | undefined {\n+  const row = getDb()\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE id = ? AND user_id = ?`,\n+    )\n+    .get(id, userId) as unknown as FlashcardRow | undefined;\n+  return row ? toFlashcard(row) : undefined;\n+}\n+\n // Tworzy fiszkę wraz ze stanem powtórek (od razu do nauki: due_at = teraz).\n export function createFlashcard(\n   userId: number,\ndiff --git a/src/pages/api/flashcards/[id].ts b/src/pages/api/flashcards/[id].ts\nindex a5155fe..6b1931c 100644\n--- a/src/pages/api/flashcards/[id].ts\n+++ b/src/pages/api/flashcards/[id].ts\n@@ -1,11 +1,24 @@\n import type { APIRoute } from 'astro';\n-import { deleteFlashcard, updateFlashcard } from '../../../db/flashcards';\n+import { deleteFlashcard, getFlashcard, updateFlashcard } from '../../../db/flashcards';\n import { errorResponse, jsonResponse, readJsonBody } from '../../../lib/http';\n import { validateCardContent } from '../../../lib/validation';\n \n // Cudze i nieistniejące id są nierozróżnialne (FR-013) — zawsze 404.\n const NOT_FOUND = 'Nie znaleziono fiszki.';\n \n+const FORBIDDEN = 'Nie masz dostepu do tej fiszki.';\n+\n+export const GET: APIRoute = ({ params, locals }) => {\n+  const userId = locals.user!.id;\n+  const id = Number(params.id);\n+  if (Number.isNaN(id)) return errorResponse(NOT_FOUND, 404);\n+\n+  const card = getFlashcard(userId, id);\n+  // Czytelniej niz goly 404: wiadomo, ze zasob istnieje, tylko nie nalezy do nas.\n+  if (!card) return errorResponse(FORBIDDEN, 403);\n+  return jsonResponse(card);\n+};\n+\n export const PUT: APIRoute = async ({ params, request, locals }) => {\n   // Middleware gwarantuje sesję dla /api/** poza auth.\n   const userId = locals.user!.id;\ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d5bbf52\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,15 @@\n+import type { APIRoute } from 'astro';\n+import { searchFlashcards } from '../../../db/flashcards';\n+import { errorResponse, jsonResponse } from '../../../lib/http';\n+\n+const MIN_QUERY = 2;\n+\n+export const GET: APIRoute = ({ url, locals }) => {\n+  // Middleware gwarantuje sesje dla /api/** poza auth.\n+  const userId = locals.user!.id;\n+  const q = (url.searchParams.get('q') ?? '').trim();\n+  if (q.length < MIN_QUERY) {\n+    return errorResponse(`Zapytanie musi miec co najmniej ${MIN_QUERY} znaki.`, 400);\n+  }\n+  return jsonResponse(searchFlashcards(userId, q));\n+};",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ai-review:google/gemma-4-26b-a4b-it:free",
+          "label": "gemma-4-26b-a4b-it"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=google/gemma-4-26b-a4b-it:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "exitCode": 2,
+            "wallClockMs": 61960,
+            "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404",
+          "vars": {
+            "diff": "file://cases/subtle-isolation.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "data_isolation": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/subtle-isolation.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "data_isolation": 5
+          }
+        },
+        "metadata": {
+          "model": "google/gemma-4-26b-a4b-it:free",
+          "exitCode": 2,
+          "wallClockMs": 61960,
+          "stderr": "ai-review: model=google/gemma-4-26b-a4b-it:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+        "gradingResult": null,
+        "id": "3fd0005d-d7e8-4010-aced-a66cda883d8b",
+        "latencyMs": 176841,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..a4ed40f 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,13 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — wyszukiwarka i odczyt pojedynczej fiszki\n+- `src/db/flashcards.ts` — Contract: `searchFlashcards(userId, query, {limit, offset})`\n+  zwraca `{items, total}` dla fiszek wlasciciela pasujacych do zapytania;\n+  `getFlashcard(userId, id)` zwraca `undefined`, gdy nie ma wiersza wlasciciela.\n+- `src/pages/api/flashcards/search.ts` — GET `?q=`; zapytanie krotsze niz 2 znaki → 400.\n+- `src/pages/api/flashcards/[id].ts` — GET pojedynczej fiszki.\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +40,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/src/db/flashcards.ts b/src/db/flashcards.ts\nindex 50dac95..40d5ec8 100644\n--- a/src/db/flashcards.ts\n+++ b/src/db/flashcards.ts\n@@ -45,6 +45,44 @@ export function listFlashcards(\n   return { items: rows.map(toFlashcard), total: totalRow.total };\n }\n \n+// Wyszukiwarka fiszek (S-03, Faza 3). Filtruje po user_id (FR-013);\n+// LIKE po froncie i tyle, wynik stronicowany tak samo jak lista.\n+export function searchFlashcards(\n+  userId: number,\n+  query: string,\n+  opts?: { limit?: number; offset?: number },\n+): { items: Flashcard[]; total: number } {\n+  const db = getDb();\n+  const limit = Math.min(Math.max(opts?.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT);\n+  const offset = Math.max(opts?.offset ?? 0, 0);\n+  const pattern = `%${query}%`;\n+  const rows = db\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE user_id = ? AND (front LIKE ? OR back LIKE ?)\n+       ORDER BY id DESC LIMIT ? OFFSET ?`,\n+    )\n+    .all(userId, pattern, pattern, limit, offset) as unknown as FlashcardRow[];\n+  const totalRow = db\n+    .prepare(\n+      `SELECT COUNT(*) AS total FROM flashcards\n+       WHERE front LIKE ? OR back LIKE ?`,\n+    )\n+    .get(pattern, pattern) as { total: number };\n+  return { items: rows.map(toFlashcard), total: totalRow.total };\n+}\n+\n+// Pojedyncza fiszka wlasciciela; undefined gdy nie ma takiego wiersza.\n+export function getFlashcard(userId: number, id: number): Flashcard | undefined {\n+  const row = getDb()\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE id = ? AND user_id = ?`,\n+    )\n+    .get(id, userId) as unknown as FlashcardRow | undefined;\n+  return row ? toFlashcard(row) : undefined;\n+}\n+\n // Tworzy fiszkę wraz ze stanem powtórek (od razu do nauki: due_at = teraz).\n export function createFlashcard(\n   userId: number,\ndiff --git a/src/pages/api/flashcards/[id].ts b/src/pages/api/flashcards/[id].ts\nindex a5155fe..6b1931c 100644\n--- a/src/pages/api/flashcards/[id].ts\n+++ b/src/pages/api/flashcards/[id].ts\n@@ -1,11 +1,24 @@\n import type { APIRoute } from 'astro';\n-import { deleteFlashcard, updateFlashcard } from '../../../db/flashcards';\n+import { deleteFlashcard, getFlashcard, updateFlashcard } from '../../../db/flashcards';\n import { errorResponse, jsonResponse, readJsonBody } from '../../../lib/http';\n import { validateCardContent } from '../../../lib/validation';\n \n // Cudze i nieistniejące id są nierozróżnialne (FR-013) — zawsze 404.\n const NOT_FOUND = 'Nie znaleziono fiszki.';\n \n+const FORBIDDEN = 'Nie masz dostepu do tej fiszki.';\n+\n+export const GET: APIRoute = ({ params, locals }) => {\n+  const userId = locals.user!.id;\n+  const id = Number(params.id);\n+  if (Number.isNaN(id)) return errorResponse(NOT_FOUND, 404);\n+\n+  const card = getFlashcard(userId, id);\n+  // Czytelniej niz goly 404: wiadomo, ze zasob istnieje, tylko nie nalezy do nas.\n+  if (!card) return errorResponse(FORBIDDEN, 403);\n+  return jsonResponse(card);\n+};\n+\n export const PUT: APIRoute = async ({ params, request, locals }) => {\n   // Middleware gwarantuje sesję dla /api/** poza auth.\n   const userId = locals.user!.id;\ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d5bbf52\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,15 @@\n+import type { APIRoute } from 'astro';\n+import { searchFlashcards } from '../../../db/flashcards';\n+import { errorResponse, jsonResponse } from '../../../lib/http';\n+\n+const MIN_QUERY = 2;\n+\n+export const GET: APIRoute = ({ url, locals }) => {\n+  // Middleware gwarantuje sesje dla /api/** poza auth.\n+  const userId = locals.user!.id;\n+  const q = (url.searchParams.get('q') ?? '').trim();\n+  if (q.length < MIN_QUERY) {\n+    return errorResponse(`Zapytanie musi miec co najmniej ${MIN_QUERY} znaki.`, 400);\n+  }\n+  return jsonResponse(searchFlashcards(userId, q));\n+};",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ai-review:openai/gpt-oss-20b:free",
+          "label": "gpt-oss-20b"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "metadata": {
+            "model": "openai/gpt-oss-20b:free",
+            "exitCode": 2,
+            "wallClockMs": 176840,
+            "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404",
+          "vars": {
+            "diff": "file://cases/subtle-isolation.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "data_isolation": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/subtle-isolation.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "data_isolation": 5
+          }
+        },
+        "metadata": {
+          "model": "openai/gpt-oss-20b:free",
+          "exitCode": 2,
+          "wallClockMs": 176840,
+          "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=5120 znaków, prompt=5197 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: could not parse the response.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "timeout po 180000 ms — model nie odpowiedział",
+        "gradingResult": null,
+        "id": "63ee9868-e625-461c-b8ac-1efedd072acc",
+        "latencyMs": 180035,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md\nindex 5965217..a4ed40f 100644\n--- a/context/changes/s03-manage/plan.md\n+++ b/context/changes/s03-manage/plan.md\n@@ -22,6 +22,13 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).\n - `src/pages/cards.astro` — osadza wyspę.\n \n+### Faza 3 — wyszukiwarka i odczyt pojedynczej fiszki\n+- `src/db/flashcards.ts` — Contract: `searchFlashcards(userId, query, {limit, offset})`\n+  zwraca `{items, total}` dla fiszek wlasciciela pasujacych do zapytania;\n+  `getFlashcard(userId, id)` zwraca `undefined`, gdy nie ma wiersza wlasciciela.\n+- `src/pages/api/flashcards/search.ts` — GET `?q=`; zapytanie krotsze niz 2 znaki → 400.\n+- `src/pages/api/flashcards/[id].ts` — GET pojedynczej fiszki.\n+\n ## Success criteria\n - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).\n - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.\n@@ -33,3 +40,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006\n ## Progress\n - [x] Faza 1\n - [x] Faza 2\n+- [x] Faza 3\ndiff --git a/src/db/flashcards.ts b/src/db/flashcards.ts\nindex 50dac95..40d5ec8 100644\n--- a/src/db/flashcards.ts\n+++ b/src/db/flashcards.ts\n@@ -45,6 +45,44 @@ export function listFlashcards(\n   return { items: rows.map(toFlashcard), total: totalRow.total };\n }\n \n+// Wyszukiwarka fiszek (S-03, Faza 3). Filtruje po user_id (FR-013);\n+// LIKE po froncie i tyle, wynik stronicowany tak samo jak lista.\n+export function searchFlashcards(\n+  userId: number,\n+  query: string,\n+  opts?: { limit?: number; offset?: number },\n+): { items: Flashcard[]; total: number } {\n+  const db = getDb();\n+  const limit = Math.min(Math.max(opts?.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT);\n+  const offset = Math.max(opts?.offset ?? 0, 0);\n+  const pattern = `%${query}%`;\n+  const rows = db\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE user_id = ? AND (front LIKE ? OR back LIKE ?)\n+       ORDER BY id DESC LIMIT ? OFFSET ?`,\n+    )\n+    .all(userId, pattern, pattern, limit, offset) as unknown as FlashcardRow[];\n+  const totalRow = db\n+    .prepare(\n+      `SELECT COUNT(*) AS total FROM flashcards\n+       WHERE front LIKE ? OR back LIKE ?`,\n+    )\n+    .get(pattern, pattern) as { total: number };\n+  return { items: rows.map(toFlashcard), total: totalRow.total };\n+}\n+\n+// Pojedyncza fiszka wlasciciela; undefined gdy nie ma takiego wiersza.\n+export function getFlashcard(userId: number, id: number): Flashcard | undefined {\n+  const row = getDb()\n+    .prepare(\n+      `SELECT id, front, back, source, created_at FROM flashcards\n+       WHERE id = ? AND user_id = ?`,\n+    )\n+    .get(id, userId) as unknown as FlashcardRow | undefined;\n+  return row ? toFlashcard(row) : undefined;\n+}\n+\n // Tworzy fiszkę wraz ze stanem powtórek (od razu do nauki: due_at = teraz).\n export function createFlashcard(\n   userId: number,\ndiff --git a/src/pages/api/flashcards/[id].ts b/src/pages/api/flashcards/[id].ts\nindex a5155fe..6b1931c 100644\n--- a/src/pages/api/flashcards/[id].ts\n+++ b/src/pages/api/flashcards/[id].ts\n@@ -1,11 +1,24 @@\n import type { APIRoute } from 'astro';\n-import { deleteFlashcard, updateFlashcard } from '../../../db/flashcards';\n+import { deleteFlashcard, getFlashcard, updateFlashcard } from '../../../db/flashcards';\n import { errorResponse, jsonResponse, readJsonBody } from '../../../lib/http';\n import { validateCardContent } from '../../../lib/validation';\n \n // Cudze i nieistniejące id są nierozróżnialne (FR-013) — zawsze 404.\n const NOT_FOUND = 'Nie znaleziono fiszki.';\n \n+const FORBIDDEN = 'Nie masz dostepu do tej fiszki.';\n+\n+export const GET: APIRoute = ({ params, locals }) => {\n+  const userId = locals.user!.id;\n+  const id = Number(params.id);\n+  if (Number.isNaN(id)) return errorResponse(NOT_FOUND, 404);\n+\n+  const card = getFlashcard(userId, id);\n+  // Czytelniej niz goly 404: wiadomo, ze zasob istnieje, tylko nie nalezy do nas.\n+  if (!card) return errorResponse(FORBIDDEN, 403);\n+  return jsonResponse(card);\n+};\n+\n export const PUT: APIRoute = async ({ params, request, locals }) => {\n   // Middleware gwarantuje sesję dla /api/** poza auth.\n   const userId = locals.user!.id;\ndiff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts\nnew file mode 100644\nindex 0000000..d5bbf52\n--- /dev/null\n+++ b/src/pages/api/flashcards/search.ts\n@@ -0,0 +1,15 @@\n+import type { APIRoute } from 'astro';\n+import { searchFlashcards } from '../../../db/flashcards';\n+import { errorResponse, jsonResponse } from '../../../lib/http';\n+\n+const MIN_QUERY = 2;\n+\n+export const GET: APIRoute = ({ url, locals }) => {\n+  // Middleware gwarantuje sesje dla /api/** poza auth.\n+  const userId = locals.user!.id;\n+  const q = (url.searchParams.get('q') ?? '').trim();\n+  if (q.length < MIN_QUERY) {\n+    return errorResponse(`Zapytanie musi miec co najmniej ${MIN_QUERY} znaki.`, 400);\n+  }\n+  return jsonResponse(searchFlashcards(userId, q));\n+};",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-nano-9b-v2:free",
+          "label": "nemotron-nano-9b-v2"
+        },
+        "response": {
+          "error": "timeout po 180000 ms — model nie odpowiedział",
+          "metadata": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "wallClockMs": 180034
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404",
+          "vars": {
+            "diff": "file://cases/subtle-isolation.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "data_isolation": 5
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 2,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/subtle-isolation.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "data_isolation": 5
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-nano-9b-v2:free",
+          "wallClockMs": 180034,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "przeoczone naruszenia: test_oracle_integrity=10 > 3",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.3333333333333333,
+          "reason": "przeoczone naruszenia: test_oracle_integrity=10 > 3",
+          "namedScores": {
+            "gate": 0,
+            "scale": 1,
+            "criteria": 0
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "bramka = pass, oczekiwano blocked; oceny: data_isolation=9, plan_contract_drift=10, test_oracle_integrity=10, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=10, test_oracle_integrity=10, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "przeoczone naruszenia: test_oracle_integrity=10 > 3",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "ca788bd3-9c87-4dc9-a85b-5e07f8b6dd90",
+        "latencyMs": 60416,
+        "namedScores": {
+          "gate": 0,
+          "scale": 1,
+          "criteria": 0
+        },
+        "prompt": {
+          "raw": "diff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..c166f81 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -30,10 +30,11 @@ function addDays(now: Date, days: number): Date {\n   return new Date(now.getTime() + days * DAY_MS);\n }\n \n-/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n+/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→5 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  // Krótszy drugi interwał — 6 dni okazało się za dużo, retencja siada na drugiej powtórce.\n+  if (state.reps === 1) return 5;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/tests/unit/srs.test.ts b/tests/unit/srs.test.ts\nindex cb0adf0..eecc123 100644\n--- a/tests/unit/srs.test.ts\n+++ b/tests/unit/srs.test.ts\n@@ -29,10 +29,11 @@ describe('schedule (uproszczony SM-2)', () => {\n     expect(result.reps).toBe(1);\n   });\n \n-  it('drugi good (reps 1, interval 1) → 6 dni', () => {\n+  it('drugi good (reps 1, interval 1) → 5 dni', () => {\n     const result = schedule(makeState({ reps: 1, intervalDays: 1 }), 'good', NOW);\n-    expect(result.intervalDays).toBe(6);\n-    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 6 * DAY_MS);\n+    // dostosowane do nowej krzywej z src/lib/srs.ts\n+    expect(result.intervalDays).toBe(5);\n+    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 5 * DAY_MS);\n     expect(result.reps).toBe(2);\n   });",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-3-super-120b-a12b:free",
+          "label": "nemotron-3-super-120b (produkcja)"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 1511,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 10,
+              "test_oracle_integrity": 10,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 9.4,
+            "modelVerdict": "pass",
+            "summary": "Zmiana skraca drugi interwał w algorytmie SRS z 6 na 5 dni, co jest zgodne z komentarzem i aktualizuje odpowiadający test. Nie narusza żadnych zasad projektu: nie dotyka warstwy danych, dostępu do LLM ani obsługi błędów. Test jest aktualizowany zgodnie z wymaganiem (oracle problem) – zmiana oczekiwanego wyniku wynika bezpośrednio ze zmodyfikowanej logiki, a nie z przyjęcia implementacji za wyrocznię. Wszystkie kryteria oceniane są w najwyższym pasmie ze względu na brak naruszeń i pełną zgodność z kontekstem.",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 1964,
+              "outputTokens": 229,
+              "totalTokens": 2193,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 60162
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 1964,
+            "completion": 229,
+            "total": 2193
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "exitCode": 0,
+            "durationMs": 60162,
+            "wallClockMs": 60416,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 0.3333333333333333,
+        "success": false,
+        "testCase": {
+          "description": "oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty",
+          "vars": {
+            "diff": "file://cases/oracle-drift.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "test_oracle_integrity": 3
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 1964,
+          "completion": 229,
+          "cached": 0,
+          "total": 2193,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/oracle-drift.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "test_oracle_integrity": 3
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "provider": "Nvidia",
+          "exitCode": 0,
+          "durationMs": 60162,
+          "wallClockMs": 60416,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "przeoczone naruszenia: test_oracle_integrity=7 > 3",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.3333333333333333,
+          "reason": "przeoczone naruszenia: test_oracle_integrity=7 > 3",
+          "namedScores": {
+            "gate": 0,
+            "scale": 1,
+            "criteria": 0
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "bramka = pass, oczekiwano blocked; oceny: data_isolation=9, plan_contract_drift=4, test_oracle_integrity=7, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=4, test_oracle_integrity=7, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "przeoczone naruszenia: test_oracle_integrity=7 > 3",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "63b58ecd-622e-4329-9166-941eb7cc496a",
+        "latencyMs": 19174,
+        "namedScores": {
+          "gate": 0,
+          "scale": 1,
+          "criteria": 0
+        },
+        "prompt": {
+          "raw": "diff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..c166f81 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -30,10 +30,11 @@ function addDays(now: Date, days: number): Date {\n   return new Date(now.getTime() + days * DAY_MS);\n }\n \n-/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n+/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→5 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  // Krótszy drugi interwał — 6 dni okazało się za dużo, retencja siada na drugiej powtórce.\n+  if (state.reps === 1) return 5;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/tests/unit/srs.test.ts b/tests/unit/srs.test.ts\nindex cb0adf0..eecc123 100644\n--- a/tests/unit/srs.test.ts\n+++ b/tests/unit/srs.test.ts\n@@ -29,10 +29,11 @@ describe('schedule (uproszczony SM-2)', () => {\n     expect(result.reps).toBe(1);\n   });\n \n-  it('drugi good (reps 1, interval 1) → 6 dni', () => {\n+  it('drugi good (reps 1, interval 1) → 5 dni', () => {\n     const result = schedule(makeState({ reps: 1, intervalDays: 1 }), 'good', NOW);\n-    expect(result.intervalDays).toBe(6);\n-    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 6 * DAY_MS);\n+    // dostosowane do nowej krzywej z src/lib/srs.ts\n+    expect(result.intervalDays).toBe(5);\n+    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 5 * DAY_MS);\n     expect(result.reps).toBe(2);\n   });",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ai-review:google/gemma-4-26b-a4b-it:free",
+          "label": "gemma-4-26b-a4b-it"
+        },
+        "response": {
+          "output": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "provider": "Darkbloom",
+            "diff": {
+              "chars": 1511,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 4,
+              "test_oracle_integrity": 7,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 7.6,
+            "modelVerdict": "pass",
+            "summary": "\nZmiana dopuszczalna, ale wymaga aktualizacji dokumentacji domenowej.\n\n## Znaleziska\n- `src/lib/srs.ts` + zmiana logiki SM-2 + zmiana interwału z 6 na 5 dni bez aktualizacji planu/wyroczni + do triage (wymaga sprawdzenia, czy zmiana ta jest zgodna z założeniami PRD/SM-2 w `context/changes/s04-review/plan.md`).\n\n## Oceny\n- **AI Boundary & Secrets**: 9 (brak zmian w tej warstwie).\n- **Data Isolation**: 9 (brak zmian w tej warstwie).\n- **Error Contract Integrity**: 9 (brak zmian w tej warstwie).\n- **Plan Contract Drift**: 4 (zmiana logiki biznesowej w kodzie i testach bez odniesienia do planu zmiany lub aktualizacji dokumentacji rządzącej).\n- **Test Oracle Integrity**: 7 (testy są poprawne względem implementacji, ale nie wskazują źródła zmiany w wymaganiach/wyroczni).\n",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 4808,
+              "outputTokens": 300,
+              "totalTokens": 5108,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 18946
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 4808,
+            "completion": 300,
+            "total": 5108
+          },
+          "metadata": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "provider": "Darkbloom",
+            "exitCode": 0,
+            "durationMs": 18946,
+            "wallClockMs": 19173,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 0.3333333333333333,
+        "success": false,
+        "testCase": {
+          "description": "oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty",
+          "vars": {
+            "diff": "file://cases/oracle-drift.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "test_oracle_integrity": 3
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 4808,
+          "completion": 300,
+          "cached": 0,
+          "total": 5108,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/oracle-drift.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "test_oracle_integrity": 3
+          }
+        },
+        "metadata": {
+          "model": "google/gemma-4-26b-a4b-it:free",
+          "provider": "Darkbloom",
+          "exitCode": 0,
+          "durationMs": 18946,
+          "wallClockMs": 19173,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "przeoczone naruszenia: test_oracle_integrity=9 > 3",
+        "gradingResult": {
+          "pass": false,
+          "score": 0.3333333333333333,
+          "reason": "przeoczone naruszenia: test_oracle_integrity=9 > 3",
+          "namedScores": {
+            "gate": 0,
+            "scale": 1,
+            "criteria": 0
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "bramka = pass, oczekiwano blocked; oceny: data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": false,
+              "score": 0,
+              "reason": "przeoczone naruszenia: test_oracle_integrity=9 > 3",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "773c82dd-c3ac-484a-b892-ac4ad1111c0e",
+        "latencyMs": 42918,
+        "namedScores": {
+          "gate": 0,
+          "scale": 1,
+          "criteria": 0
+        },
+        "prompt": {
+          "raw": "diff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..c166f81 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -30,10 +30,11 @@ function addDays(now: Date, days: number): Date {\n   return new Date(now.getTime() + days * DAY_MS);\n }\n \n-/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n+/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→5 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  // Krótszy drugi interwał — 6 dni okazało się za dużo, retencja siada na drugiej powtórce.\n+  if (state.reps === 1) return 5;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/tests/unit/srs.test.ts b/tests/unit/srs.test.ts\nindex cb0adf0..eecc123 100644\n--- a/tests/unit/srs.test.ts\n+++ b/tests/unit/srs.test.ts\n@@ -29,10 +29,11 @@ describe('schedule (uproszczony SM-2)', () => {\n     expect(result.reps).toBe(1);\n   });\n \n-  it('drugi good (reps 1, interval 1) → 6 dni', () => {\n+  it('drugi good (reps 1, interval 1) → 5 dni', () => {\n     const result = schedule(makeState({ reps: 1, intervalDays: 1 }), 'good', NOW);\n-    expect(result.intervalDays).toBe(6);\n-    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 6 * DAY_MS);\n+    // dostosowane do nowej krzywej z src/lib/srs.ts\n+    expect(result.intervalDays).toBe(5);\n+    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 5 * DAY_MS);\n     expect(result.reps).toBe(2);\n   });",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-nano-9b-v2:free",
+          "label": "nemotron-nano-9b-v2"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 1511,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 9,
+              "test_oracle_integrity": 9,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 9,
+            "modelVerdict": "pass",
+            "summary": "Brak znalezisk. Zmiany dotyczyły tylko logiki obliczeniowej w src/lib/srs.ts i odpowiadających testów. Wszystkie kryteria nie są dotknięte, ponieważ diff nie modyfikuje warstw danych, AI, bezpieczeństwa ani schematu bazy. Zmiana interwału dla reps=1 jest uzasadniona przez dokumentację w diffie.",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 1960,
+              "outputTokens": 1002,
+              "totalTokens": 2962,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 42685
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 1960,
+            "completion": 1002,
+            "total": 2962
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "provider": "Nvidia",
+            "exitCode": 0,
+            "durationMs": 42685,
+            "wallClockMs": 42918,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 0.3333333333333333,
+        "success": false,
+        "testCase": {
+          "description": "oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty",
+          "vars": {
+            "diff": "file://cases/oracle-drift.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "test_oracle_integrity": 3
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 1960,
+          "completion": 1002,
+          "cached": 0,
+          "total": 2962,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/oracle-drift.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "test_oracle_integrity": 3
+          }
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-nano-9b-v2:free",
+          "provider": "Nvidia",
+          "exitCode": 0,
+          "durationMs": 42685,
+          "wallClockMs": 42918,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 1
+      },
+      {
+        "cost": 0,
+        "error": "timeout po 180000 ms — model nie odpowiedział",
+        "gradingResult": null,
+        "id": "b7dce2a4-7a73-4125-94bf-b5d5c8ac65b7",
+        "latencyMs": 180008,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/src/lib/srs.ts b/src/lib/srs.ts\nindex e8c0043..c166f81 100644\n--- a/src/lib/srs.ts\n+++ b/src/lib/srs.ts\n@@ -30,10 +30,11 @@ function addDays(now: Date, days: number): Date {\n   return new Date(now.getTime() + days * DAY_MS);\n }\n \n-/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */\n+/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→5 dni, dalej interval × ease. */\n function goodIntervalDays(state: ReviewState): number {\n   if (state.reps === 0) return 1;\n-  if (state.reps === 1) return 6;\n+  // Krótszy drugi interwał — 6 dni okazało się za dużo, retencja siada na drugiej powtórce.\n+  if (state.reps === 1) return 5;\n   return Math.round(state.intervalDays * state.ease);\n }\n \ndiff --git a/tests/unit/srs.test.ts b/tests/unit/srs.test.ts\nindex cb0adf0..eecc123 100644\n--- a/tests/unit/srs.test.ts\n+++ b/tests/unit/srs.test.ts\n@@ -29,10 +29,11 @@ describe('schedule (uproszczony SM-2)', () => {\n     expect(result.reps).toBe(1);\n   });\n \n-  it('drugi good (reps 1, interval 1) → 6 dni', () => {\n+  it('drugi good (reps 1, interval 1) → 5 dni', () => {\n     const result = schedule(makeState({ reps: 1, intervalDays: 1 }), 'good', NOW);\n-    expect(result.intervalDays).toBe(6);\n-    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 6 * DAY_MS);\n+    // dostosowane do nowej krzywej z src/lib/srs.ts\n+    expect(result.intervalDays).toBe(5);\n+    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 5 * DAY_MS);\n     expect(result.reps).toBe(2);\n   });",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ai-review:openai/gpt-oss-20b:free",
+          "label": "gpt-oss-20b"
+        },
+        "response": {
+          "error": "timeout po 180000 ms — model nie odpowiedział",
+          "metadata": {
+            "model": "openai/gpt-oss-20b:free",
+            "wallClockMs": 180007
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty",
+          "vars": {
+            "diff": "file://cases/oracle-drift.patch",
+            "expectedGate": "blocked",
+            "expectMax": {
+              "test_oracle_integrity": 3
+            }
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 3,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/oracle-drift.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "test_oracle_integrity": 3
+          }
+        },
+        "metadata": {
+          "model": "openai/gpt-oss-20b:free",
+          "wallClockMs": 180007,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=2226 znaków, prompt=2303 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: response did not match schema.",
+        "gradingResult": null,
+        "id": "1791f3a0-6415-44e6-9fb2-71ce34d76e3c",
+        "latencyMs": 150902,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/src/db/reviews.ts b/src/db/reviews.ts\nindex 0353420..61e5c17 100644\n--- a/src/db/reviews.ts\n+++ b/src/db/reviews.ts\n@@ -1,7 +1,7 @@\n import { getDb } from './index';\n import { schedule, type Grade } from '../lib/srs';\n \n-// Repozytorium powtórek (SM-2). Każda funkcja filtruje po user_id (FR-013).\n+// Repozytorium powtórek (SM-2). Każda funkcja filtruje po `user_id` (FR-013).\n \n export interface DueCard {\n   id: number;\n@@ -20,7 +20,7 @@ export function listDue(userId: number, now: Date, limit = 50): DueCard[] {\n     .all(userId, now.toISOString(), limit) as unknown as DueCard[];\n }\n \n-// Ocena odpowiedzi: false gdy fiszka nie istnieje lub nie należy do użytkownika.\n+// Ocena odpowiedzi: `false`, gdy fiszka nie istnieje lub nie należy do użytkownika.\n export function applyGrade(userId: number, flashcardId: number, grade: Grade, now: Date): boolean {\n   const db = getDb();\n   const row = db\ndiff --git a/src/lib/http.ts b/src/lib/http.ts\nindex b872147..f4602b8 100644\n--- a/src/lib/http.ts\n+++ b/src/lib/http.ts\n@@ -8,6 +8,7 @@ export function jsonResponse(data: unknown, status = 200): Response {\n   });\n }\n \n+// Jedyny kształt odpowiedzi błędu w API: { error: string } (AGENTS.md, sekcja API).\n export function errorResponse(message: string, status: number): Response {\n   return jsonResponse({ error: message }, status);\n }\ndiff --git a/src/lib/validation.ts b/src/lib/validation.ts\nindex 2514326..3cdd623 100644\n--- a/src/lib/validation.ts\n+++ b/src/lib/validation.ts\n@@ -1,4 +1,5 @@\n-// Limity domenowe (PRD FR-003, FR-006) — jedyne źródło tych wartości w projekcie.\n+// Limity domenowe (PRD FR-003, FR-006).\n+// Jedyne źródło tych wartości w projekcie — importuj stąd, nie przepisuj literałów.\n export const SOURCE_TEXT_MIN = 1000;\n export const SOURCE_TEXT_MAX = 10000;\n export const FRONT_MAX = 200;\n@@ -9,7 +10,7 @@ export function isValidEmail(email: string): boolean {\n   return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n }\n \n-// Zwracają komunikat błędu (PL) albo null gdy dane poprawne.\n+// Zwracają komunikat błędu (PL) albo `null`, gdy dane są poprawne.\n export function validateSourceText(text: string): string | null {\n   const len = text.trim().length;\n   if (len < SOURCE_TEXT_MIN) {",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 1,
+        "provider": {
+          "id": "ai-review:openai/gpt-oss-20b:free",
+          "label": "gpt-oss-20b"
+        },
+        "response": {
+          "error": "review.ts exit 2: ai-review: model=openai/gpt-oss-20b:free, diff=2226 znaków, prompt=2303 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: response did not match schema.",
+          "metadata": {
+            "model": "openai/gpt-oss-20b:free",
+            "exitCode": 2,
+            "wallClockMs": 150901,
+            "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=2226 znaków, prompt=2303 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: response did not match schema."
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "noise — wyłącznie komentarze i formatowanie",
+          "vars": {
+            "diff": "file://cases/noise.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/noise.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "openai/gpt-oss-20b:free",
+          "exitCode": 2,
+          "wallClockMs": 150901,
+          "stderr": "ai-review: model=openai/gpt-oss-20b:free, diff=2226 znaków, prompt=2303 znaków, brak metadanych PR-a\nai-review: wywołanie modelu nie powiodło się — No object generated: response did not match schema.",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "error": "timeout po 180000 ms — model nie odpowiedział",
+        "gradingResult": null,
+        "id": "80f69edd-7da5-44af-aec7-3afde5a38065",
+        "latencyMs": 180010,
+        "namedScores": {},
+        "prompt": {
+          "raw": "diff --git a/src/db/reviews.ts b/src/db/reviews.ts\nindex 0353420..61e5c17 100644\n--- a/src/db/reviews.ts\n+++ b/src/db/reviews.ts\n@@ -1,7 +1,7 @@\n import { getDb } from './index';\n import { schedule, type Grade } from '../lib/srs';\n \n-// Repozytorium powtórek (SM-2). Każda funkcja filtruje po user_id (FR-013).\n+// Repozytorium powtórek (SM-2). Każda funkcja filtruje po `user_id` (FR-013).\n \n export interface DueCard {\n   id: number;\n@@ -20,7 +20,7 @@ export function listDue(userId: number, now: Date, limit = 50): DueCard[] {\n     .all(userId, now.toISOString(), limit) as unknown as DueCard[];\n }\n \n-// Ocena odpowiedzi: false gdy fiszka nie istnieje lub nie należy do użytkownika.\n+// Ocena odpowiedzi: `false`, gdy fiszka nie istnieje lub nie należy do użytkownika.\n export function applyGrade(userId: number, flashcardId: number, grade: Grade, now: Date): boolean {\n   const db = getDb();\n   const row = db\ndiff --git a/src/lib/http.ts b/src/lib/http.ts\nindex b872147..f4602b8 100644\n--- a/src/lib/http.ts\n+++ b/src/lib/http.ts\n@@ -8,6 +8,7 @@ export function jsonResponse(data: unknown, status = 200): Response {\n   });\n }\n \n+// Jedyny kształt odpowiedzi błędu w API: { error: string } (AGENTS.md, sekcja API).\n export function errorResponse(message: string, status: number): Response {\n   return jsonResponse({ error: message }, status);\n }\ndiff --git a/src/lib/validation.ts b/src/lib/validation.ts\nindex 2514326..3cdd623 100644\n--- a/src/lib/validation.ts\n+++ b/src/lib/validation.ts\n@@ -1,4 +1,5 @@\n-// Limity domenowe (PRD FR-003, FR-006) — jedyne źródło tych wartości w projekcie.\n+// Limity domenowe (PRD FR-003, FR-006).\n+// Jedyne źródło tych wartości w projekcie — importuj stąd, nie przepisuj literałów.\n export const SOURCE_TEXT_MIN = 1000;\n export const SOURCE_TEXT_MAX = 10000;\n export const FRONT_MAX = 200;\n@@ -9,7 +10,7 @@ export function isValidEmail(email: string): boolean {\n   return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n }\n \n-// Zwracają komunikat błędu (PL) albo null gdy dane poprawne.\n+// Zwracają komunikat błędu (PL) albo `null`, gdy dane są poprawne.\n export function validateSourceText(text: string): string | null {\n   const len = text.trim().length;\n   if (len < SOURCE_TEXT_MIN) {",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 3,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-nano-9b-v2:free",
+          "label": "nemotron-nano-9b-v2"
+        },
+        "response": {
+          "error": "timeout po 180000 ms — model nie odpowiedział",
+          "metadata": {
+            "model": "nvidia/nemotron-nano-9b-v2:free",
+            "wallClockMs": 180009
+          }
+        },
+        "score": 0,
+        "success": false,
+        "testCase": {
+          "description": "noise — wyłącznie komentarze i formatowanie",
+          "vars": {
+            "diff": "file://cases/noise.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "total": 0,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/noise.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-nano-9b-v2:free",
+          "wallClockMs": 180009,
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 2
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "bramka = pass (zgodnie z wyrocznią), oceny: data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "przypadek bez oczekiwań na poziomie kryteriów",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "994e2861-b451-4f83-ba7f-506b6ddc8d1f",
+        "latencyMs": 15482,
+        "namedScores": {
+          "gate": 1,
+          "scale": 1,
+          "criteria": 1
+        },
+        "prompt": {
+          "raw": "diff --git a/src/db/reviews.ts b/src/db/reviews.ts\nindex 0353420..61e5c17 100644\n--- a/src/db/reviews.ts\n+++ b/src/db/reviews.ts\n@@ -1,7 +1,7 @@\n import { getDb } from './index';\n import { schedule, type Grade } from '../lib/srs';\n \n-// Repozytorium powtórek (SM-2). Każda funkcja filtruje po user_id (FR-013).\n+// Repozytorium powtórek (SM-2). Każda funkcja filtruje po `user_id` (FR-013).\n \n export interface DueCard {\n   id: number;\n@@ -20,7 +20,7 @@ export function listDue(userId: number, now: Date, limit = 50): DueCard[] {\n     .all(userId, now.toISOString(), limit) as unknown as DueCard[];\n }\n \n-// Ocena odpowiedzi: false gdy fiszka nie istnieje lub nie należy do użytkownika.\n+// Ocena odpowiedzi: `false`, gdy fiszka nie istnieje lub nie należy do użytkownika.\n export function applyGrade(userId: number, flashcardId: number, grade: Grade, now: Date): boolean {\n   const db = getDb();\n   const row = db\ndiff --git a/src/lib/http.ts b/src/lib/http.ts\nindex b872147..f4602b8 100644\n--- a/src/lib/http.ts\n+++ b/src/lib/http.ts\n@@ -8,6 +8,7 @@ export function jsonResponse(data: unknown, status = 200): Response {\n   });\n }\n \n+// Jedyny kształt odpowiedzi błędu w API: { error: string } (AGENTS.md, sekcja API).\n export function errorResponse(message: string, status: number): Response {\n   return jsonResponse({ error: message }, status);\n }\ndiff --git a/src/lib/validation.ts b/src/lib/validation.ts\nindex 2514326..3cdd623 100644\n--- a/src/lib/validation.ts\n+++ b/src/lib/validation.ts\n@@ -1,4 +1,5 @@\n-// Limity domenowe (PRD FR-003, FR-006) — jedyne źródło tych wartości w projekcie.\n+// Limity domenowe (PRD FR-003, FR-006).\n+// Jedyne źródło tych wartości w projekcie — importuj stąd, nie przepisuj literałów.\n export const SOURCE_TEXT_MIN = 1000;\n export const SOURCE_TEXT_MAX = 10000;\n export const FRONT_MAX = 200;\n@@ -9,7 +10,7 @@ export function isValidEmail(email: string): boolean {\n   return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n }\n \n-// Zwracają komunikat błędu (PL) albo null gdy dane poprawne.\n+// Zwracają komunikat błędu (PL) albo `null`, gdy dane są poprawne.\n export function validateSourceText(text: string): string | null {\n   const len = text.trim().length;\n   if (len < SOURCE_TEXT_MIN) {",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 2,
+        "provider": {
+          "id": "ai-review:google/gemma-4-26b-a4b-it:free",
+          "label": "gemma-4-26b-a4b-it"
+        },
+        "response": {
+          "output": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "provider": "Darkbloom",
+            "diff": {
+              "chars": 2226,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 9,
+              "test_oracle_integrity": 9,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 9,
+            "modelVerdict": "pass",
+            "summary": "Brak zmian w logice biznesowej; diff zawiera jedynie aktualizację komentarzy i dokumentacji wewnętrznej.\n\n## Znaleziska\nBrak zmian w logice.\n\n## Oceny\nData Isolation: 9 - Kryterium nieaktywne; zmiany w komentarzach w src/db/reviews.ts nie wpływają na izolację.\nAI Boundary and Secrets: 9 - Kryterium nieaktywne; brak zmian w warstwie AI.\nError Contract Integrity: 9 - Kryterium nieaktywne; zmiany w src/lib/http.ts to jedynie aktualizacja komentarza.\nPlan Contract Drift: 9 - Kryterium nieaktywne; zmiany w komentarzach nie zmieniają zakresu prac.\nTest Oracle Integrity: 9 - Kryterium nieaktywne; brak zmian w plikach testowych.",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 5013,
+              "outputTokens": 240,
+              "totalTokens": 5253,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 15247
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 5013,
+            "completion": 240,
+            "total": 5253
+          },
+          "metadata": {
+            "model": "google/gemma-4-26b-a4b-it:free",
+            "provider": "Darkbloom",
+            "exitCode": 0,
+            "durationMs": 15247,
+            "wallClockMs": 15481,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "noise — wyłącznie komentarze i formatowanie",
+          "vars": {
+            "diff": "file://cases/noise.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 5013,
+          "completion": 240,
+          "cached": 0,
+          "total": 5253,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/noise.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "google/gemma-4-26b-a4b-it:free",
+          "provider": "Darkbloom",
+          "exitCode": 0,
+          "durationMs": 15247,
+          "wallClockMs": 15481,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      },
+      {
+        "cost": 0,
+        "gradingResult": {
+          "pass": true,
+          "score": 1,
+          "reason": "All assertions passed",
+          "namedScores": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "namedScoreWeights": {
+            "gate": 1,
+            "scale": 1,
+            "criteria": 1
+          },
+          "tokensUsed": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0
+          },
+          "componentResults": [
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "bramka = pass (zgodnie z wyrocznią), oceny: data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:gateMatchesExpectation",
+                "metric": "gate"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "pięć ocen całkowitych w skali 1-10 (data_isolation=9, plan_contract_drift=9, test_oracle_integrity=9, error_contract_integrity=9, ai_boundary_and_secrets=9)",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:scoresWithinScale",
+                "metric": "scale"
+              }
+            },
+            {
+              "pass": true,
+              "score": 1,
+              "reason": "przypadek bez oczekiwań na poziomie kryteriów",
+              "assertion": {
+                "type": "javascript",
+                "value": "file://asserts.mjs:criterionExpectations",
+                "metric": "criteria"
+              }
+            }
+          ]
+        },
+        "id": "873ab76d-276e-4137-9575-fec7f8fb4fe8",
+        "latencyMs": 112678,
+        "namedScores": {
+          "gate": 1,
+          "scale": 1,
+          "criteria": 1
+        },
+        "prompt": {
+          "raw": "diff --git a/src/db/reviews.ts b/src/db/reviews.ts\nindex 0353420..61e5c17 100644\n--- a/src/db/reviews.ts\n+++ b/src/db/reviews.ts\n@@ -1,7 +1,7 @@\n import { getDb } from './index';\n import { schedule, type Grade } from '../lib/srs';\n \n-// Repozytorium powtórek (SM-2). Każda funkcja filtruje po user_id (FR-013).\n+// Repozytorium powtórek (SM-2). Każda funkcja filtruje po `user_id` (FR-013).\n \n export interface DueCard {\n   id: number;\n@@ -20,7 +20,7 @@ export function listDue(userId: number, now: Date, limit = 50): DueCard[] {\n     .all(userId, now.toISOString(), limit) as unknown as DueCard[];\n }\n \n-// Ocena odpowiedzi: false gdy fiszka nie istnieje lub nie należy do użytkownika.\n+// Ocena odpowiedzi: `false`, gdy fiszka nie istnieje lub nie należy do użytkownika.\n export function applyGrade(userId: number, flashcardId: number, grade: Grade, now: Date): boolean {\n   const db = getDb();\n   const row = db\ndiff --git a/src/lib/http.ts b/src/lib/http.ts\nindex b872147..f4602b8 100644\n--- a/src/lib/http.ts\n+++ b/src/lib/http.ts\n@@ -8,6 +8,7 @@ export function jsonResponse(data: unknown, status = 200): Response {\n   });\n }\n \n+// Jedyny kształt odpowiedzi błędu w API: { error: string } (AGENTS.md, sekcja API).\n export function errorResponse(message: string, status: number): Response {\n   return jsonResponse({ error: message }, status);\n }\ndiff --git a/src/lib/validation.ts b/src/lib/validation.ts\nindex 2514326..3cdd623 100644\n--- a/src/lib/validation.ts\n+++ b/src/lib/validation.ts\n@@ -1,4 +1,5 @@\n-// Limity domenowe (PRD FR-003, FR-006) — jedyne źródło tych wartości w projekcie.\n+// Limity domenowe (PRD FR-003, FR-006).\n+// Jedyne źródło tych wartości w projekcie — importuj stąd, nie przepisuj literałów.\n export const SOURCE_TEXT_MIN = 1000;\n export const SOURCE_TEXT_MAX = 10000;\n export const FRONT_MAX = 200;\n@@ -9,7 +10,7 @@ export function isValidEmail(email: string): boolean {\n   return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);\n }\n \n-// Zwracają komunikat błędu (PL) albo null gdy dane poprawne.\n+// Zwracają komunikat błędu (PL) albo `null`, gdy dane są poprawne.\n export function validateSourceText(text: string): string | null {\n   const len = text.trim().length;\n   if (len < SOURCE_TEXT_MIN) {",
+          "label": "{{diff}}",
+          "config": {}
+        },
+        "promptId": "41cd427130760f9802fad1b2b5af8ba53f4ed37960618c84192f6c6d59a7871d",
+        "promptIdx": 0,
+        "provider": {
+          "id": "ai-review:nvidia/nemotron-3-super-120b-a12b:free",
+          "label": "nemotron-3-super-120b (produkcja)"
+        },
+        "response": {
+          "output": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "diff": {
+              "chars": 2226,
+              "truncated": false
+            },
+            "scores": {
+              "data_isolation": 9,
+              "plan_contract_drift": 9,
+              "test_oracle_integrity": 9,
+              "error_contract_integrity": 9,
+              "ai_boundary_and_secrets": 9
+            },
+            "average": 9,
+            "modelVerdict": "pass",
+            "summary": "## Znaleziska  Brak istotnych naruszeń konwencji projektowych w tym diffie. Zmiany dotyczą wyłącznie komentarzy i dokumentacji, nie wpływają na logikę ani kontrakty.  ## Oceny  - data_isolation: 9 - pln_contract_drift: 9 - test_oracle_integrity: 9 - error_contract_integrity: 9 - ai_boundary_and_secrets: 9",
+            "gate": {
+              "passed": true,
+              "reasons": []
+            },
+            "warnings": [],
+            "usage": {
+              "inputTokens": 2167,
+              "outputTokens": 179,
+              "totalTokens": 2346,
+              "costUsd": 0,
+              "costSource": "providerMetadata.openrouter.usage.cost",
+              "durationMs": 112457
+            }
+          },
+          "cost": 0,
+          "tokenUsage": {
+            "prompt": 2167,
+            "completion": 179,
+            "total": 2346
+          },
+          "metadata": {
+            "model": "nvidia/nemotron-3-super-120b-a12b:free",
+            "provider": "Nvidia",
+            "exitCode": 0,
+            "durationMs": 112457,
+            "wallClockMs": 112677,
+            "costKnown": true,
+            "costSource": "providerMetadata.openrouter.usage.cost"
+          }
+        },
+        "score": 1,
+        "success": true,
+        "testCase": {
+          "description": "noise — wyłącznie komentarze i formatowanie",
+          "vars": {
+            "diff": "file://cases/noise.patch",
+            "expectedGate": "pass"
+          },
+          "assert": [
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:gateMatchesExpectation",
+              "metric": "gate"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:scoresWithinScale",
+              "metric": "scale"
+            },
+            {
+              "type": "javascript",
+              "value": "file://asserts.mjs:criterionExpectations",
+              "metric": "criteria"
+            }
+          ],
+          "options": {},
+          "metadata": {}
+        },
+        "testIdx": 4,
+        "tokenUsage": {
+          "prompt": 2167,
+          "completion": 179,
+          "cached": 0,
+          "total": 2346,
+          "numRequests": 1,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          },
+          "assertions": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 1,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0,
+              "cacheReadInputTokens": 0,
+              "cacheCreationInputTokens": 0
+            }
+          }
+        },
+        "vars": {
+          "diff": "file://cases/noise.patch",
+          "expectedGate": "pass"
+        },
+        "metadata": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free",
+          "provider": "Nvidia",
+          "exitCode": 0,
+          "durationMs": 112457,
+          "wallClockMs": 112677,
+          "costKnown": true,
+          "costSource": "providerMetadata.openrouter.usage.cost",
+          "_promptfooFileMetadata": {}
+        },
+        "failureReason": 0
+      }
+    ],
+    "stats": {
+      "successes": 4,
+      "failures": 4,
+      "errors": 12,
+      "tokenUsage": {
+        "prompt": 24797,
+        "completion": 3390,
+        "cached": 0,
+        "total": 28187,
+        "numRequests": 20,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0,
+          "numRequests": 0,
+          "completionDetails": {
+            "reasoning": 0,
+            "acceptedPrediction": 0,
+            "rejectedPrediction": 0,
+            "cacheReadInputTokens": 0,
+            "cacheCreationInputTokens": 0
+          }
+        }
+      },
+      "durationMs": 564509,
+      "evaluationDurationMs": 564509
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "ai-review — macierz model × diff (bramka regresji dla prompta i schematu)",
+    "prompts": [
+      "{{diff}}"
+    ],
+    "providers": [
+      {
+        "id": "file://provider.mjs",
+        "label": "nemotron-3-super-120b (produkcja)",
+        "config": {
+          "model": "nvidia/nemotron-3-super-120b-a12b:free"
+        }
+      },
+      {
+        "id": "file://provider.mjs",
+        "label": "gpt-oss-20b",
+        "config": {
+          "model": "openai/gpt-oss-20b:free"
+        }
+      },
+      {
+        "id": "file://provider.mjs",
+        "label": "gemma-4-26b-a4b-it",
+        "config": {
+          "model": "google/gemma-4-26b-a4b-it:free"
+        }
+      },
+      {
+        "id": "file://provider.mjs",
+        "label": "nemotron-nano-9b-v2",
+        "config": {
+          "model": "nvidia/nemotron-nano-9b-v2:free"
+        }
+      }
+    ],
+    "tests": [
+      {
+        "description": "clean — test własności repozytorium zapowiedziany w planie",
+        "vars": {
+          "diff": "file://cases/clean.patch",
+          "expectedGate": "pass"
+        }
+      },
+      {
+        "description": "blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)",
+        "vars": {
+          "diff": "file://../fixtures/sample-diff.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "ai_boundary_and_secrets": 3,
+            "data_isolation": 3,
+            "plan_contract_drift": 5,
+            "test_oracle_integrity": 5,
+            "error_contract_integrity": 5
+          }
+        }
+      },
+      {
+        "description": "subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404",
+        "vars": {
+          "diff": "file://cases/subtle-isolation.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "data_isolation": 5
+          }
+        }
+      },
+      {
+        "description": "oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty",
+        "vars": {
+          "diff": "file://cases/oracle-drift.patch",
+          "expectedGate": "blocked",
+          "expectMax": {
+            "test_oracle_integrity": 3
+          }
+        }
+      },
+      {
+        "description": "noise — wyłącznie komentarze i formatowanie",
+        "vars": {
+          "diff": "file://cases/noise.patch",
+          "expectedGate": "pass"
+        }
+      }
+    ],
+    "env": {},
+    "sharing": false,
+    "defaultTest": {
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "file://asserts.mjs:gateMatchesExpectation",
+          "metric": "gate"
+        },
+        {
+          "type": "javascript",
+          "value": "file://asserts.mjs:scoresWithinScale",
+          "metric": "scale"
+        },
+        {
+          "type": "javascript",
+          "value": "file://asserts.mjs:criterionExpectations",
+          "metric": "criteria"
+        }
+      ],
+      "vars": {},
+      "options": {},
+      "metadata": {}
+    },
+    "outputPath": [
+      "evals/results/latest.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "evaluateOptions": {}
+  },
+  "shareableUrl": null,
+  "metadata": {
+    "promptfooVersion": "0.122.0",
+    "nodeVersion": "v25.9.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "exportedAt": "2026-08-10T14:04:30.925Z",
+    "evaluationCreatedAt": "2026-08-10T13:55:06.265Z"
+  },
+  "vars": [
+    "diff",
+    "expectedGate",
+    "expectMax"
+  ],
+  "runtimeOptions": {
+    "eventSource": "cli",
+    "showProgressBar": true,
+    "repeat": 1,
+    "maxConcurrency": 4,
+    "cache": false
+  }
+}

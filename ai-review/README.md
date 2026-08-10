@@ -236,22 +236,27 @@ Kształt wywołania został sprawdzony przez podstawienie własnego `fetch` do
 `response_format.type: json_schema`, `json_schema.strict: true`, komplet siedmiu
 pól schematu bez `minimum`/`maximum` oraz pełne rubryki w `description`.
 
-### Live smoke test — NIE wykonany
-
-`OPENROUTER_API_KEY` nie był ustawiony w środowisku podczas budowy paczki, więc
-żadne wywołanie modelu nie poszło. Komenda do odpalenia, gdy klucz się pojawi:
+### Live smoke test — wykonany (2026-08-10)
 
 ```sh
 cd ai-review && OPENROUTER_API_KEY=sk-or-... npx tsx review.ts < fixtures/sample-diff.patch; echo "exit=$?"
 ```
 
-**Oczekiwany wynik:** `exit=1`. Fixture łamie wszystkie pięć kryteriów, więc bramka
-musi zablokować — jeżeli wyjdzie `exit=0`, problem jest w promptcie albo w modelu,
-nie w bramce (`schema.test.ts` dowodzi, że sama reguła progowa działa).
+**Wynik:** `exit=1`, oceny `2/2/2/2/1`, średnia 1,8 — bramka blokuje, zgodnie z
+oczekiwaniem (fixture łamie wszystkie pięć kryteriów). Model odpowiedział przez
+endpoint Nvidia, koszt `$0.000000`, czas 64 s.
 
 Gdyby request padł na odrzuconym schemacie, pierwsza rzecz do sprawdzenia to
 `AI_REVIEW_STRICT_SCHEMA=0` (wyłącza `json_schema.strict`, zostawiając schemat
 w `response_format`).
+
+### Porównanie modeli — `evals/`
+
+Pełna macierz 4 modele × 5 diffów o znanym z góry wyniku (bramka, oceny, koszt,
+czas, czy model w ogóle dowiózł JSON) żyje w [`evals/README.md`](evals/README.md).
+Ten sam zestaw jest bramką regresji dla `SYSTEM_PROMPT` i rubryk: provider
+promptfoo uruchamia `review.ts`, więc zmiana kontraktu automatycznie przechodzi
+przez wszystkie przypadki.
 
 ## `fixtures/sample-diff.patch`
 

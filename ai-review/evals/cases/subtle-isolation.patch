@@ -1,0 +1,123 @@
+diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md
+index 5965217..a4ed40f 100644
+--- a/context/changes/s03-manage/plan.md
++++ b/context/changes/s03-manage/plan.md
+@@ -22,6 +22,13 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006
+   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).
+ - `src/pages/cards.astro` — osadza wyspę.
+ 
++### Faza 3 — wyszukiwarka i odczyt pojedynczej fiszki
++- `src/db/flashcards.ts` — Contract: `searchFlashcards(userId, query, {limit, offset})`
++  zwraca `{items, total}` dla fiszek wlasciciela pasujacych do zapytania;
++  `getFlashcard(userId, id)` zwraca `undefined`, gdy nie ma wiersza wlasciciela.
++- `src/pages/api/flashcards/search.ts` — GET `?q=`; zapytanie krotsze niz 2 znaki → 400.
++- `src/pages/api/flashcards/[id].ts` — GET pojedynczej fiszki.
++
+ ## Success criteria
+ - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).
+ - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.
+@@ -33,3 +40,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006
+ ## Progress
+ - [x] Faza 1
+ - [x] Faza 2
++- [x] Faza 3
+diff --git a/src/db/flashcards.ts b/src/db/flashcards.ts
+index 50dac95..40d5ec8 100644
+--- a/src/db/flashcards.ts
++++ b/src/db/flashcards.ts
+@@ -45,6 +45,44 @@ export function listFlashcards(
+   return { items: rows.map(toFlashcard), total: totalRow.total };
+ }
+ 
++// Wyszukiwarka fiszek (S-03, Faza 3). Filtruje po user_id (FR-013);
++// LIKE po froncie i tyle, wynik stronicowany tak samo jak lista.
++export function searchFlashcards(
++  userId: number,
++  query: string,
++  opts?: { limit?: number; offset?: number },
++): { items: Flashcard[]; total: number } {
++  const db = getDb();
++  const limit = Math.min(Math.max(opts?.limit ?? DEFAULT_LIMIT, 1), MAX_LIMIT);
++  const offset = Math.max(opts?.offset ?? 0, 0);
++  const pattern = `%${query}%`;
++  const rows = db
++    .prepare(
++      `SELECT id, front, back, source, created_at FROM flashcards
++       WHERE user_id = ? AND (front LIKE ? OR back LIKE ?)
++       ORDER BY id DESC LIMIT ? OFFSET ?`,
++    )
++    .all(userId, pattern, pattern, limit, offset) as unknown as FlashcardRow[];
++  const totalRow = db
++    .prepare(
++      `SELECT COUNT(*) AS total FROM flashcards
++       WHERE front LIKE ? OR back LIKE ?`,
++    )
++    .get(pattern, pattern) as { total: number };
++  return { items: rows.map(toFlashcard), total: totalRow.total };
++}
++
++// Pojedyncza fiszka wlasciciela; undefined gdy nie ma takiego wiersza.
++export function getFlashcard(userId: number, id: number): Flashcard | undefined {
++  const row = getDb()
++    .prepare(
++      `SELECT id, front, back, source, created_at FROM flashcards
++       WHERE id = ? AND user_id = ?`,
++    )
++    .get(id, userId) as unknown as FlashcardRow | undefined;
++  return row ? toFlashcard(row) : undefined;
++}
++
+ // Tworzy fiszkę wraz ze stanem powtórek (od razu do nauki: due_at = teraz).
+ export function createFlashcard(
+   userId: number,
+diff --git a/src/pages/api/flashcards/[id].ts b/src/pages/api/flashcards/[id].ts
+index a5155fe..6b1931c 100644
+--- a/src/pages/api/flashcards/[id].ts
++++ b/src/pages/api/flashcards/[id].ts
+@@ -1,11 +1,24 @@
+ import type { APIRoute } from 'astro';
+-import { deleteFlashcard, updateFlashcard } from '../../../db/flashcards';
++import { deleteFlashcard, getFlashcard, updateFlashcard } from '../../../db/flashcards';
+ import { errorResponse, jsonResponse, readJsonBody } from '../../../lib/http';
+ import { validateCardContent } from '../../../lib/validation';
+ 
+ // Cudze i nieistniejące id są nierozróżnialne (FR-013) — zawsze 404.
+ const NOT_FOUND = 'Nie znaleziono fiszki.';
+ 
++const FORBIDDEN = 'Nie masz dostepu do tej fiszki.';
++
++export const GET: APIRoute = ({ params, locals }) => {
++  const userId = locals.user!.id;
++  const id = Number(params.id);
++  if (Number.isNaN(id)) return errorResponse(NOT_FOUND, 404);
++
++  const card = getFlashcard(userId, id);
++  // Czytelniej niz goly 404: wiadomo, ze zasob istnieje, tylko nie nalezy do nas.
++  if (!card) return errorResponse(FORBIDDEN, 403);
++  return jsonResponse(card);
++};
++
+ export const PUT: APIRoute = async ({ params, request, locals }) => {
+   // Middleware gwarantuje sesję dla /api/** poza auth.
+   const userId = locals.user!.id;
+diff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts
+new file mode 100644
+index 0000000..d5bbf52
+--- /dev/null
++++ b/src/pages/api/flashcards/search.ts
+@@ -0,0 +1,15 @@
++import type { APIRoute } from 'astro';
++import { searchFlashcards } from '../../../db/flashcards';
++import { errorResponse, jsonResponse } from '../../../lib/http';
++
++const MIN_QUERY = 2;
++
++export const GET: APIRoute = ({ url, locals }) => {
++  // Middleware gwarantuje sesje dla /api/** poza auth.
++  const userId = locals.user!.id;
++  const q = (url.searchParams.get('q') ?? '').trim();
++  if (q.length < MIN_QUERY) {
++    return errorResponse(`Zapytanie musi miec co najmniej ${MIN_QUERY} znaki.`, 400);
++  }
++  return jsonResponse(searchFlashcards(userId, q));
++};

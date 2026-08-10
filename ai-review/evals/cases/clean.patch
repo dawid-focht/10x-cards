@@ -1,0 +1,84 @@
+diff --git a/context/changes/s03-manage/plan.md b/context/changes/s03-manage/plan.md
+index 5965217..81d49ba 100644
+--- a/context/changes/s03-manage/plan.md
++++ b/context/changes/s03-manage/plan.md
+@@ -22,6 +22,12 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006
+   usuwanie z `confirm()`; badge źródła (AI / AI-edytowana / manualna).
+ - `src/pages/cards.astro` — osadza wyspę.
+ 
++### Faza 3 — test wlasnosci repozytorium
++- `tests/unit/flashcards-isolation.test.ts` — asercje wyprowadzone z sekcji
++  Success criteria i Risks tego planu: `list/update/delete` wywolane przez
++  nie-wlasciciela nie zmieniaja stanu wlasciciela, a cudze i nieistniejace id
++  sa nierozroznialne (FR-013, US-009). Domykalny risk „IDOR".
++
+ ## Success criteria
+ - Manualna fiszka pojawia się natychmiast ze źródłem `manual` (US-005).
+ - Edycja/usunięcie trwałe po odświeżeniu (US-006); usunięcie kasuje review_state.
+@@ -33,3 +39,4 @@ ograniczone do właściciela; cudze id → 404. (FR-006..009, FR-013, US-005/006
+ ## Progress
+ - [x] Faza 1
+ - [x] Faza 2
++- [x] Faza 3
+diff --git a/tests/unit/flashcards-isolation.test.ts b/tests/unit/flashcards-isolation.test.ts
+new file mode 100644
+index 0000000..d1eb8d4
+--- /dev/null
++++ b/tests/unit/flashcards-isolation.test.ts
+@@ -0,0 +1,56 @@
++// Wyrocznia: context/changes/s03-manage/plan.md — Success criteria („PUT/DELETE na
++// cudzym id → 404 bez treści różnicującej", US-009) oraz Risks („IDOR → wszystkie
++// zapytania z WHERE user_id = ?; test jednostkowy repozytorium"), FR-013.
++// Musi być ustawione zanim cokolwiek zawoła getDb() — testy chodzą na :memory:.
++process.env.DATABASE_FILE = ':memory:';
++
++import { afterAll, beforeAll, describe, expect, it } from 'vitest';
++import { createUser } from '../../src/lib/auth';
++import {
++  createFlashcard,
++  deleteFlashcard,
++  listFlashcards,
++  updateFlashcard,
++} from '../../src/db/flashcards';
++import { closeDbForTests } from '../../src/db';
++
++let owner = 0;
++let intruder = 0;
++let cardId = 0;
++
++beforeAll(() => {
++  owner = createUser('wlasciciel@example.com', 'haslo-wlasciciela')!;
++  intruder = createUser('intruz@example.com', 'haslo-intruza')!;
++  cardId = createFlashcard(owner, {
++    front: 'Fotosynteza',
++    back: 'Proces wytwarzania cukrow z CO2 i wody',
++    source: 'manual',
++  }).id;
++});
++
++afterAll(() => {
++  closeDbForTests();
++});
++
++describe('izolacja repozytorium fiszek (FR-013, plan S-03: Risks IDOR)', () => {
++  it('listFlashcards nie zwraca cudzych fiszek ani nie liczy ich w total', () => {
++    const foreign = listFlashcards(intruder);
++    expect(foreign.items).toHaveLength(0);
++    expect(foreign.total).toBe(0);
++  });
++
++  it('updateFlashcard na cudzym id → false, tresc wlasciciela nietknieta', () => {
++    expect(updateFlashcard(intruder, cardId, { front: 'przejete', back: 'przejete' })).toBe(false);
++    expect(listFlashcards(owner).items[0]?.front).toBe('Fotosynteza');
++  });
++
++  it('deleteFlashcard na cudzym id → false, fiszka nadal istnieje', () => {
++    expect(deleteFlashcard(intruder, cardId)).toBe(false);
++    expect(listFlashcards(owner).total).toBe(1);
++  });
++
++  it('cudze i nieistniejace id sa nierozroznialne (oba → false)', () => {
++    expect(deleteFlashcard(intruder, cardId)).toBe(false);
++    expect(deleteFlashcard(intruder, 999_999)).toBe(false);
++  });
++});

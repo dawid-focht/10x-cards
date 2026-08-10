@@ -1,0 +1,112 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+#
+# M5L3 z.3 — porównanie modeli na jednym zestawie diffów o znanym z góry wyniku.
+#
+# Prompt systemowy, schemat i bramka NIE są tu zdefiniowane. Provider uruchamia
+# ../review.ts, więc wszystko pochodzi z common/review-schema.ts — jedna kopia
+# kontraktu dla wszystkich modeli i automatyczna bramka regresji przy zmianie
+# prompta. `{{diff}}` to całe wejście użytkownika: surowy unified diff.
+#
+# Uruchomienie (klucz z ../.env, NIE wypisuj wartości):
+#   set -a && . ../.env && set +a
+#   npx promptfoo@0.122.0 eval -c evals/promptfooconfig.yaml -j 1 --delay 4000 \
+#     -o evals/results/latest.json
+#
+# Budżet: 4 modele × 5 przypadków = 20 zapytań (limit darmowego konta: 50/dobę,
+# 20/min). `-j 1` + `--delay` trzyma nas pod limitem minutowym.
+
+description: ai-review — macierz model × diff (bramka regresji dla prompta i schematu)
+
+sharing: false
+
+prompts:
+  - '{{diff}}'
+
+providers:
+  # Kolejność = kolejność kolumn w macierzy. Wszystkie warianty :free, bo klucz
+  # ma limit wydatków $0 (model płatny zwróciłby 402). Wsparcie structured
+  # outputs zweryfikowane na /models/<id>/endpoints — patrz README.md.
+  - id: file://provider.mjs
+    label: nemotron-3-super-120b (produkcja)
+    config:
+      model: nvidia/nemotron-3-super-120b-a12b:free
+  - id: file://provider.mjs
+    label: gpt-oss-20b
+    config:
+      model: openai/gpt-oss-20b:free
+  - id: file://provider.mjs
+    label: gemma-4-26b-a4b-it
+    config:
+      model: google/gemma-4-26b-a4b-it:free
+  - id: file://provider.mjs
+    label: nemotron-nano-9b-v2
+    config:
+      model: nvidia/nemotron-nano-9b-v2:free
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://asserts.mjs:gateMatchesExpectation
+      metric: gate
+    - type: javascript
+      value: file://asserts.mjs:scoresWithinScale
+      metric: scale
+    - type: javascript
+      value: file://asserts.mjs:criterionExpectations
+      metric: criteria
+
+tests:
+  # Wyrocznia każdego przypadku jest ustalona PRZED uruchomieniem modeli i wynika
+  # z rubryk w common/review-schema.ts, nie z tego, co model odpowiedział.
+  - description: clean — test własności repozytorium zapowiedziany w planie
+    vars:
+      diff: file://cases/clean.patch
+      expectedGate: pass
+    # Diff dokłada test wymagany przez sekcję Risks planu S-03 i odhacza fazę
+    # w ## Progress. Zero naruszeń — bramka ma przepuścić. Blokada tutaj to
+    # fałszywy alarm, czyli koszt wdrożenia modelu, nie jego zasługa.
+
+  - description: blatant — pięć naruszeń naraz (fixtures/sample-diff.patch)
+    vars:
+      diff: file://../fixtures/sample-diff.patch
+      expectedGate: blocked
+      expectMax:
+        # Klucz API w kodzie + fetch z pominięciem getAiProvider() + usunięte MOCK_AI z CI.
+        ai_boundary_and_secrets: 3
+        # SQL sklejany z parametru zapytania, bez WHERE user_id.
+        data_isolation: 3
+        # Reguła w AGENTS.md skasowana, faza planu odhaczona bez pokrycia.
+        plan_contract_drift: 5
+        # toBeDefined() + oczekiwanie przepisane z wyniku implementacji.
+        test_oracle_integrity: 5
+        # catch → 200 z pustą listą; awaria połknięta.
+        error_contract_integrity: 5
+
+  - description: subtle-isolation — filtr gubiony w jednej ścieżce + 403 zamiast 404
+    vars:
+      diff: file://cases/subtle-isolation.patch
+      expectedGate: blocked
+      expectMax:
+        # searchFlashcards filtruje listę po user_id, ale zapytanie COUNT już nie
+        # (wyciek liczby cudzych fiszek); GET /api/flashcards/[id] mapuje brak
+        # wiersza na 403, wbrew AGENTS.md („nigdy 403"). Reszta diffu jest czysta —
+        # plan zaktualizowany, zapytania sparametryzowane. To test na czytanie SQL-a,
+        # nie na wyłapywanie krzyku.
+        data_isolation: 5
+
+  - description: oracle-drift — reguła SM-2 zmieniona, test dopasowany, plan nietknięty
+    vars:
+      diff: file://cases/oracle-drift.patch
+      expectedGate: blocked
+      expectMax:
+        # Klasyk z lessons.md: interwał `good` 6 → 5 dni w src/lib/srs.ts i ta sama
+        # zmiana w asercji tests/unit/srs.test.ts. Testy zielone, wyrocznia
+        # (context/changes/s04-review/plan.md) niezmieniona. Pipeline tego nie łapie.
+        test_oracle_integrity: 3
+
+  - description: noise — wyłącznie komentarze i formatowanie
+    vars:
+      diff: file://cases/noise.patch
+      expectedGate: pass
+    # Zero zmian zachowania. Sprawdza fałszywe alarmy: model, który blokuje ten
+    # diff, będzie blokował dowolny PR i nie nadaje się na bramkę.
