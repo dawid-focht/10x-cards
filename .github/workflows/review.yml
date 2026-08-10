@@ -66,17 +66,39 @@ jobs:
           out="${RUNNER_TEMP}/pr.diff"
           # --merge-base: recenzujemy wyłącznie to, co wnosi ta gałąź, a nie
           # commity, które w międzyczasie doszły do bazy.
-          git diff --merge-base "${base}" HEAD > "${out}"
+          #
+          # Wykluczenia: pliki generowane maszynowo (lockfile'e, zrzuty wyników
+          # evali, snapshoty testów) nie niosą decyzji projektowych, a potrafią
+          # wypchnąć z okna cały realny kod — zrzut evali to 3232 linie, przy
+          # limicie 90 kB nie zostaje nic na resztę zmiany.
+          git diff --merge-base "${base}" HEAD -- . \
+            ':(exclude)**/package-lock.json' \
+            ':(exclude)**/yarn.lock' \
+            ':(exclude)**/pnpm-lock.yaml' \
+            ':(exclude)ai-review/evals/results/**' \
+            ':(exclude)**/__snapshots__/**' \
+            > "${out}"
 
           bytes=$(wc -c < "${out}")
           echo "diff względem ${base}: ${bytes} bajtów"
 
+          truncated_note=''
           if [ "${bytes}" -gt "${MAX_DIFF_BYTES}" ]; then
             head -c "${MAX_DIFF_BYTES}" "${out}" > "${out}.cut"
             printf '\n\n[... diff przycięty na %s bajtach z %s ...]\n' "${MAX_DIFF_BYTES}" "${bytes}" >> "${out}.cut"
             mv "${out}.cut" "${out}"
             echo "::warning title=Diff przycięty::recenzja pokrywa pierwsze ${MAX_DIFF_BYTES} bajtów z ${bytes}."
+            # Adnotacja przebiegu jest niewidoczna dla czytającego komentarz na
+            # PR-ze, a „bramka przepuszcza" na 1/3 zmiany znaczy co innego niż na
+            # całości. Limit musi być jawny tam, gdzie zapada decyzja o merge'u.
+            pct=$(( MAX_DIFF_BYTES * 100 / bytes ))
+            truncated_note="> ⚠️ **Recenzja niepełna:** diff przycięty do ${MAX_DIFF_BYTES} z ${bytes} bajtów (**~${pct}% zmiany**). Werdykt dotyczy wyłącznie obejrzanej części."
           fi
+          {
+            printf 'truncated_note<<AI_REVIEW_NOTE\n'
+            printf '%s\n' "${truncated_note}"
+            printf 'AI_REVIEW_NOTE\n'
+          } >> "${GITHUB_OUTPUT}"
 
           # Losowy separator heredoc: treść diffu jest pisana przez autora PR-a,
           # a stały separator (np. EOF) dałoby się w niej powtórzyć i domknąć
@@ -111,6 +133,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TRUNCATED_NOTE: ${{ steps.diff.outputs.truncated_note }}
         run: |
           set -euo pipefail
 
@@ -124,6 +147,14 @@ jobs:
               printf 'Przebieg zatrzymał się przed recenzją (skan sekretów, brak klucza albo błąd agenta).\n\n'
               printf 'Log: %s\n' "${RUN_URL}"
             } > "${body}"
+          fi
+
+          # Ostrzeżenie o niepełnym pokryciu ląduje NA GÓRZE komentarza — pod
+          # tabelą ocen nikt go nie przeczyta, a to ono zmienia znaczenie werdyktu.
+          if [ -n "${TRUNCATED_NOTE}" ]; then
+            merged="${RUNNER_TEMP}/ai-review-with-note.md"
+            { printf '%s\n\n' "${TRUNCATED_NOTE}"; cat "${body}"; } > "${merged}"
+            body="${merged}"
           fi
 
           # --edit-last: kolejny push nadpisuje poprzedni komentarz zamiast

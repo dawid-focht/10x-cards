@@ -13,15 +13,15 @@ has_background_jobs: false
 
 > Wynik kroku /10x-tech-stack-selector na podstawie `prd.md`.
 > Ścieżka `custom`: kursowy starter `10x-astro-starter` (Astro + Supabase + OpenRouter)
-> nie jest osiągalny w tym środowisku — brak Dockera (lokalny Supabase odpada) i przyjęta
-> zasada „nie zakładamy kont w usługach zewnętrznych".
+> odpada na tej maszynie — nie mam Dockera, więc lokalny Supabase nie wchodzi w grę, a
+> zdecydowałem, że na potrzeby projektu kursowego nie zakładam kont w kolejnych usługach.
 > Zamienniki wybrane tak, by zachować charakter startera i zdawalność certyfikacji.
 
 ## Stack
 
 | Warstwa | Wybór | Rola |
 | --- | --- | --- |
-| Framework | **Astro 5** (output: server, adapter node) | SSR, routing, API endpoints, middleware sesji |
+| Framework | **Astro 7** (output: server, adapter node) | SSR, routing, API endpoints, middleware sesji |
 | UI | **React 19** (wyspy) + **Tailwind CSS 4** | interaktywny przegląd propozycji i sesja powtórek |
 | Język | **TypeScript 5** (strict) | typy end-to-end, przyjazność agentowi |
 | Baza danych | **SQLite** przez `node:sqlite` (wbudowany w Node ≥ 22.5) + cienka typowana warstwa repozytoriów | zero natywnych zależności i kompilacji w CI, idempotentne migracje SQL |
@@ -44,7 +44,7 @@ has_background_jobs: false
 
 | Komponent | Typed | Convention-based | Popular in training | Well-documented |
 | --- | --- | --- | --- | --- |
-| Astro 5 | ✅ | ✅ (src/pages, src/components) | ✅ | ✅ |
+| Astro 7 | ✅ | ✅ (src/pages, src/components) | ✅ | ✅ |
 | React 19 | ✅ | ✅ | ✅ | ✅ |
 | node:sqlite + typowane repozytoria | ✅ | ✅ (schema.sql + repos) | ✅ | ✅ (docs Node.js) |
 | Tailwind 4 | n/d | ✅ | ✅ | ✅ |

@@ -18,8 +18,8 @@ type: refactor-plan
 node, `astro.config.mjs:10–15`) + React 19 (wyspy) + TypeScript, baza
 **SQLite przez `node:sqlite`**, własne sesje (scrypt), AI przez OpenRouter/Mock,
 Vitest + Playwright.
-*(Uwaga uboczna, poza zakresem tego planu: `tech-stack.md:24` mówi „Astro 5", a
-`package.json` i zainstalowana wersja to 7.1.1 — dokument jest nieaktualny.)*
+*(Uwaga uboczna, poza zakresem tego planu: `tech-stack.md` podawał wcześniej
+„Astro 5" przy zainstalowanym 7.1.1 — dokument został wyrównany do stanu repo.)*
 
 **Zależności zewnętrzne (manifest `package.json`)** — `dependencies`: `@astrojs/node`,
 `@astrojs/react`, `@tailwindcss/vite`, `astro`, `react`, `react-dom`, `tailwindcss`.
