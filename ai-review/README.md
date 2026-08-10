@@ -53,6 +53,21 @@ Zmienne środowiskowe:
 | `AI_REVIEW_MODEL` | `nvidia/nemotron-3-super-120b-a12b:free` | podmiana modelu bez zmiany kodu |
 | `AI_REVIEW_MAX_DIFF_CHARS` | `400000` | próg przycięcia diffu |
 | `AI_REVIEW_STRICT_SCHEMA` | `1` | `0` wyłącza `json_schema.strict`, gdyby provider go odrzucał |
+| `AI_REVIEW_PR_TITLE` | — | tytuł PR-a jako kontekst; nieufne wejście (patrz niżej) |
+| `AI_REVIEW_PR_BODY` | — | opis PR-a jako kontekst; nieufne wejście (patrz niżej) |
+
+### Metadane PR-a to dane, nie instrukcje
+
+`AI_REVIEW_PR_TITLE` i `AI_REVIEW_PR_BODY` pisze autor recenzowanej zmiany, czyli
+osoba zainteresowana wynikiem recenzji. Wchodzą do prompta w bloku ograniczonym
+separatorem z **jednorazowym nonce** (UUID losowany przy każdym uruchomieniu),
+opatrzonym instrukcją, że to deklaracja intencji, a nie polecenie, i że próbę
+sterowania oceną należy odnotować w `summary` jako znalezisko. Nonce jest tu
+istotą: stały separator autor PR-a mógłby po prostu przepisać w opisie i wyjść
+z obszaru danych do obszaru instrukcji.
+
+Kryteria, rubryki i progi bramki zostają przy tym nietknięte — `SYSTEM_PROMPT`
+i `REVIEW_SCHEMA` nie wiedzą o istnieniu metadanych.
 
 ## Wybór modelu — sprawdzony, nie zgadnięty
 
@@ -273,19 +288,39 @@ Importy używają jawnego rozszerzenia `.ts` (`allowImportingTsExtensions` w
 `tsconfig.json`), więc paczka działa zarówno pod `tsx`, jak i pod natywnym
 strippingiem typów w Node 24.
 
-## Dalej: M5L3
+## W CI (M5L3)
 
-Ten sam skrypt wchodzi do CI jako osobny job z sekretem `OPENROUTER_API_KEY`:
+Agent jest wpięty w pipeline jako osobny workflow — istniejący job `build-test`
+z `ci.yml` zostaje nietknięty.
 
-```yml
-- run: npm ci
-  working-directory: ai-review
-- run: git diff origin/${{ github.base_ref }}...HEAD | npx tsx review.ts | tee review.json
-  working-directory: ai-review
-  env:
-    OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+```
+.github/actions/ai-reviewer/   akcja kompozytowa (skan sekretów → agent → werdykt)
+  action.yml                   inputs: api-key, pr-title, pr-body, diff; output: verdict
+  scan-secrets.sh              bramka bezpieczeństwa PRZED wywołaniem modelu
+  run-review.sh                uruchomienie agenta + budowa komentarza na PR
+.github/workflows/review.yml   konsument: uses: ./.github/actions/ai-reviewer
 ```
 
-Niezerowy kod wyjścia wywraca joba — to jest bramka. `summary` z `review.json`
-nadaje się do wklejenia jako komentarz do PR-a bez dalszej obróbki.
-Istniejący job `build-test` zostaje nietknięty.
+Podział ról: workflow liczy diff i komentuje PR-a, akcja recenzuje i zwraca
+`verdict` (`pass` / `blocked` / `error`). Akcja **nie** wywraca joba przy
+blokadzie — decyzję podejmuje krok „Bramka" w workflow, dopiero po opublikowaniu
+komentarza. Odwrotna kolejność zostawiałaby czerwony przebieg bez uzasadnienia.
+
+Cztery rzeczy w tej konfiguracji są nieoczywiste i łatwo je zepsuć przy edycji:
+
+1. **`fetch-depth: 0`** w `actions/checkout`. Domyślny płytki checkout nie ma
+   commita bazowego, więc `git diff` względem bazy zwraca pustkę — agent dostaje
+   pusty diff i przepuszcza każdą zmianę. Bramka wygląda wtedy na działającą.
+2. **Skan sekretów przed modelem.** Diff może zawierać klucz. Gdyby skan stał po
+   recenzji, sekret najpierw poleciałby do zewnętrznego API, a dopiero potem
+   model doniósłby, że wyciekł. Wzorce są wąskimi wyrażeniami regularnymi —
+   szczegóły i uzasadnienie w nagłówku `scan-secrets.sh`.
+3. **Nieufne wejścia idą kanałem `env`.** Tytuł i opis PR-a nigdy nie są
+   interpolowane przez `${{ }}` do bloku `run:` — tam byłyby wykonaniem kodu na
+   runnerze, który trzyma w pamięci `OPENROUTER_API_KEY`.
+4. **Akcje przypięte do SHA**, nie do ruchomego `@v7`, z komentarzem wersji obok.
+   To cudzy kod z dostępem do sekretów; tag można przesunąć, SHA nie.
+
+Diff jest przycinany do 90 000 bajtów po stronie workflow. Powód jest techniczny:
+jedzie do akcji jako zmienna środowiskowa, a `execve` na Linuksie ogranicza
+pojedynczy łańcuch środowiska do 128 KiB (`MAX_ARG_STRLEN`).
