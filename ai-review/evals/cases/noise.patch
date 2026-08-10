@@ -1,0 +1,54 @@
+diff --git a/src/db/reviews.ts b/src/db/reviews.ts
+index 0353420..61e5c17 100644
+--- a/src/db/reviews.ts
++++ b/src/db/reviews.ts
+@@ -1,7 +1,7 @@
+ import { getDb } from './index';
+ import { schedule, type Grade } from '../lib/srs';
+ 
+-// Repozytorium powtórek (SM-2). Każda funkcja filtruje po user_id (FR-013).
++// Repozytorium powtórek (SM-2). Każda funkcja filtruje po `user_id` (FR-013).
+ 
+ export interface DueCard {
+   id: number;
+@@ -20,7 +20,7 @@ export function listDue(userId: number, now: Date, limit = 50): DueCard[] {
+     .all(userId, now.toISOString(), limit) as unknown as DueCard[];
+ }
+ 
+-// Ocena odpowiedzi: false gdy fiszka nie istnieje lub nie należy do użytkownika.
++// Ocena odpowiedzi: `false`, gdy fiszka nie istnieje lub nie należy do użytkownika.
+ export function applyGrade(userId: number, flashcardId: number, grade: Grade, now: Date): boolean {
+   const db = getDb();
+   const row = db
+diff --git a/src/lib/http.ts b/src/lib/http.ts
+index b872147..f4602b8 100644
+--- a/src/lib/http.ts
++++ b/src/lib/http.ts
+@@ -8,6 +8,7 @@ export function jsonResponse(data: unknown, status = 200): Response {
+   });
+ }
+ 
++// Jedyny kształt odpowiedzi błędu w API: { error: string } (AGENTS.md, sekcja API).
+ export function errorResponse(message: string, status: number): Response {
+   return jsonResponse({ error: message }, status);
+ }
+diff --git a/src/lib/validation.ts b/src/lib/validation.ts
+index 2514326..3cdd623 100644
+--- a/src/lib/validation.ts
++++ b/src/lib/validation.ts
+@@ -1,4 +1,5 @@
+-// Limity domenowe (PRD FR-003, FR-006) — jedyne źródło tych wartości w projekcie.
++// Limity domenowe (PRD FR-003, FR-006).
++// Jedyne źródło tych wartości w projekcie — importuj stąd, nie przepisuj literałów.
+ export const SOURCE_TEXT_MIN = 1000;
+ export const SOURCE_TEXT_MAX = 10000;
+ export const FRONT_MAX = 200;
+@@ -9,7 +10,7 @@ export function isValidEmail(email: string): boolean {
+   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+ }
+ 
+-// Zwracają komunikat błędu (PL) albo null gdy dane poprawne.
++// Zwracają komunikat błędu (PL) albo `null`, gdy dane są poprawne.
+ export function validateSourceText(text: string): string | null {
+   const len = text.trim().length;
+   if (len < SOURCE_TEXT_MIN) {

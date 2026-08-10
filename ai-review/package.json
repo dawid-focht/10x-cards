@@ -10,7 +10,9 @@
   "scripts": {
     "review": "tsx review.ts",
     "test": "tsx schema.test.ts",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "eval": "npx -y promptfoo@0.122.0 eval -c evals/promptfooconfig.yaml -j 4 --no-cache -o evals/results/latest.json",
+    "eval:report": "node evals/report.mjs evals/results/latest.json"
   },
   "dependencies": {
     "@openrouter/ai-sdk-provider": "^2.10.0",

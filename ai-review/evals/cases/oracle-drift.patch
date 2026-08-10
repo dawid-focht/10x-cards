@@ -1,0 +1,37 @@
+diff --git a/src/lib/srs.ts b/src/lib/srs.ts
+index e8c0043..c166f81 100644
+--- a/src/lib/srs.ts
++++ b/src/lib/srs.ts
+@@ -30,10 +30,11 @@ function addDays(now: Date, days: number): Date {
+   return new Date(now.getTime() + days * DAY_MS);
+ }
+ 
+-/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */
++/** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→5 dni, dalej interval × ease. */
+ function goodIntervalDays(state: ReviewState): number {
+   if (state.reps === 0) return 1;
+-  if (state.reps === 1) return 6;
++  // Krótszy drugi interwał — 6 dni okazało się za dużo, retencja siada na drugiej powtórce.
++  if (state.reps === 1) return 5;
+   return Math.round(state.intervalDays * state.ease);
+ }
+ 
+diff --git a/tests/unit/srs.test.ts b/tests/unit/srs.test.ts
+index cb0adf0..eecc123 100644
+--- a/tests/unit/srs.test.ts
++++ b/tests/unit/srs.test.ts
+@@ -29,10 +29,11 @@ describe('schedule (uproszczony SM-2)', () => {
+     expect(result.reps).toBe(1);
+   });
+ 
+-  it('drugi good (reps 1, interval 1) → 6 dni', () => {
++  it('drugi good (reps 1, interval 1) → 5 dni', () => {
+     const result = schedule(makeState({ reps: 1, intervalDays: 1 }), 'good', NOW);
+-    expect(result.intervalDays).toBe(6);
+-    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 6 * DAY_MS);
++    // dostosowane do nowej krzywej z src/lib/srs.ts
++    expect(result.intervalDays).toBe(5);
++    expect(result.dueAt.getTime()).toBe(NOW.getTime() + 5 * DAY_MS);
+     expect(result.reps).toBe(2);
+   });
+ 
