@@ -5,7 +5,8 @@
     "**/*"
   ],
   "exclude": [
-    "dist"
+    "dist",
+    "ai-review"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",
