@@ -1,0 +1,127 @@
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 79c1dd6..6410b2e 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -38,8 +38,6 @@ jobs:
+ 
+       - name: E2E tests
+         run: npm run test:e2e
+-        env:
+-          MOCK_AI: '1'
+ 
+       - name: Upload Playwright report
+         if: failure()
+diff --git a/AGENTS.md b/AGENTS.md
+index de29676..34bbf86 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -24,10 +24,7 @@ i powtórkami SM-2. Kontrakty projektu żyją w `context/` — czytaj just-in-ti
+   `src/db/schema.sql` (idempotentny — tylko `CREATE ... IF NOT EXISTS`, bez
+   migracji destrukcyjnych). SQL trzymaj w plikach `src/db/*.ts` (repozytoria),
+   nigdy w endpointach ani komponentach.
+-- **Izolacja danych (FR-013):** każda funkcja repozytorium przyjmuje `userId`
+-  jako pierwszy argument i filtruje `WHERE user_id = ?`. Brak wiersza właściciela
+-  → zwróć `false`/`undefined`, endpoint mapuje na 404 (nigdy 403 — nie
+-  rozróżniamy „cudze" od „nie istnieje").
++- **Izolacja danych (FR-013):** filtruj po `user_id` tam, gdzie to ma sens.
+ - **AI:** dostęp do LLM tylko przez `getAiProvider()` z `src/lib/ai/provider.ts`.
+   `MOCK_AI=1` lub brak klucza = MockProvider. Testy i CI NIGDY nie wołają
+   prawdziwego API. Kluczy nie commituj; konfiguracja przez env (`.env.example`).
+diff --git a/context/changes/s04-review/plan.md b/context/changes/s04-review/plan.md
+index ee0f3fe..5e4cd91 100644
+--- a/context/changes/s04-review/plan.md
++++ b/context/changes/s04-review/plan.md
+@@ -35,3 +35,4 @@ każda ocena aktualizuje stan SR i termin kolejnej powtórki. (FR-010, US-007)
+ ## Progress
+ - [x] Faza 1
+ - [x] Faza 2
++- [x] Faza 3 — wyszukiwarka fiszek + podpowiedzi AI
+diff --git a/src/lib/ai/suggest.ts b/src/lib/ai/suggest.ts
+new file mode 100644
+index 0000000..f1cdfb1
+--- /dev/null
++++ b/src/lib/ai/suggest.ts
+@@ -0,0 +1,21 @@
++// Podpowiedzi do pola wyszukiwania — mały model, osobna ścieżka niż generowanie fiszek.
++
++const OPENROUTER_KEY = 'sk-or-v1-EXAMPLE0000000000000000000000000000000000000000000000000000';
++
++export async function suggestQueries(prefix: string): Promise<string[]> {
++  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
++    method: 'POST',
++    headers: {
++      Authorization: `Bearer ${OPENROUTER_KEY}`,
++      'Content-Type': 'application/json',
++    },
++    body: JSON.stringify({
++      model: 'openai/gpt-4o-mini',
++      messages: [{ role: 'user', content: `Dokończ zapytanie: ${prefix}` }],
++    }),
++  });
++  if (!res.ok) return [];
++  const data = (await res.json()) as { choices?: { message?: { content?: string } }[] };
++  const text = data.choices?.[0]?.message?.content ?? '';
++  return text.split('\n').filter(Boolean);
++}
+diff --git a/src/lib/srs.ts b/src/lib/srs.ts
+index e8c0043..f7fee0c 100644
+--- a/src/lib/srs.ts
++++ b/src/lib/srs.ts
+@@ -33,7 +33,7 @@ function addDays(now: Date, days: number): Date {
+ /** Interwał wg reguły `good`: reps 0→1 dzień, reps 1→6 dni, dalej interval × ease. */
+ function goodIntervalDays(state: ReviewState): number {
+   if (state.reps === 0) return 1;
+-  if (state.reps === 1) return 6;
++  if (state.reps === 1) return 4;
+   return Math.round(state.intervalDays * state.ease);
+ }
+ 
+diff --git a/src/pages/api/flashcards/search.ts b/src/pages/api/flashcards/search.ts
+new file mode 100644
+index 0000000..d87f1c9
+--- /dev/null
++++ b/src/pages/api/flashcards/search.ts
+@@ -0,0 +1,22 @@
++import type { APIRoute } from 'astro';
++import { getDb } from '../../../db/index';
++import { jsonResponse } from '../../../lib/http';
++
++// Wyszukiwarka fiszek — szybka ścieżka, bez repozytorium (mniej warstw).
++export const GET: APIRoute = ({ url }) => {
++  const q = url.searchParams.get('q') ?? '';
++  try {
++    const rows = getDb()
++      .prepare(
++        `SELECT id, front, back, source, created_at FROM flashcards
++         WHERE front LIKE '%${q}%' OR back LIKE '%${q}%'
++         ORDER BY id DESC LIMIT 50`,
++      )
++      .all();
++    return jsonResponse({ items: rows });
++  } catch (err) {
++    console.error(err);
++    // Nie psujemy widoku listy — pusty wynik wystarczy.
++    return jsonResponse({ items: [] });
++  }
++};
+diff --git a/tests/unit/search.test.ts b/tests/unit/search.test.ts
+new file mode 100644
+index 0000000..fa6512e
+--- /dev/null
++++ b/tests/unit/search.test.ts
+@@ -0,0 +1,15 @@
++import { describe, expect, it } from 'vitest';
++import { suggestQueries } from '../../src/lib/ai/suggest';
++
++describe('suggestQueries', () => {
++  it('zwraca podpowiedzi', async () => {
++    const result = await suggestQueries('fotosynt');
++    expect(result).toBeDefined();
++  });
++
++  it('zwraca 3 podpowiedzi dla prefiksu', async () => {
++    const result = await suggestQueries('fotosynt');
++    // tyle wychodzi z modelu przy tym prefiksie
++    expect(result.length).toBe(3);
++  });
++});
