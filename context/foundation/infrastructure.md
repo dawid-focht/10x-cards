@@ -4,10 +4,11 @@
 
 ## Decyzja
 
-**MVP działa lokalnie (node adapter); docelowy hosting: dowolny managed Node host —
-rekomendacja DigitalOcean App Platform lub VPS z Node 22+ (dostępny: Hetzner).**
-Publiczny deployment jest warstwą ponad minimum certyfikacji (prework 4.2), więc
-odkładam go na później — plan wdrożenia poniżej jest kompletny i wykonywalny.
+**Hosting: VPS Hetzner (Ubuntu 24.04, Node 22) — proces `node dist/server/entry.mjs`
+pod systemd, nginx jako reverse proxy z TLS od Let's Encrypt, baza SQLite w trwałym
+katalogu poza aplikacją.** Aplikacja działa publicznie pod https://cards.focht.pl
+(wdrożenie 2026-09-14 według planu poniżej). Rozważane były managed Node hosty
+(DigitalOcean App Platform); VPS wygrał, bo już go mam i nie wymaga kolejnego konta.
 
 ## Scored comparison (kryteria agent-friendly z M1L5)
 

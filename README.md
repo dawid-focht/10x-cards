@@ -1,5 +1,7 @@
 # 10xCards
 
+**Wersja publiczna:** https://cards.focht.pl (rejestracja otwarta).
+
 Aplikacja webowa do generowania fiszek edukacyjnych przez AI. Użytkownik wkleja
 tekst źródłowy (1000–10000 znaków), AI proponuje fiszki, a **bramka akceptacji**
 pozwala każdą propozycję zaakceptować, edytować lub odrzucić — zapisywane są
