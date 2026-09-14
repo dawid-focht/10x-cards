@@ -35,6 +35,10 @@ przepływ E2E. Bez warstwy pośredniej (integracyjnej) na tym etapie projektu.
   propozycji, limity długości, puste wejście.
 - `validation.test.ts` — granice limitów domenowych (999/1000/10000/10001,
   front ≤ 200, back ≤ 500, puste pola).
+- `openrouter.test.ts` — klient OpenRouter (`src/lib/ai/openrouter.ts`) na
+  stubie `fetch`: błąd dostawcy w odpowiedzi HTTP 200 → `AiProviderError('upstream')`,
+  do 3 prób naprzemiennie na modelu głównym i zapasowym, bez zapasowego ponawia
+  ten sam model; po trzech porażkach wyjątek z ostatnim błędem.
 
 ### E2E (Playwright, `e2e/`)
 
@@ -51,7 +55,7 @@ fiszek → sesja powtórek; plus test ochrony dostępu (strona chroniona bez ses
 | R-01   | E2E „ochrona dostępu" (bez sesji → `/login`); testy repozytoriów per `userId` przy rozbudowie; konwencja 404-nie-403 z AGENTS.md                        |
 | R-02   | `srs.test.ts` — pełna tabela reguł (good/again/hard/easy, granice ease 1.3–2.8, brak mutacji wejścia)                                                   |
 | R-03   | E2E przepływ krytyczny: 2× akceptuj + 1× odrzuć → zapis dokładnie 2 fiszek („Zapisano 2 fiszek.", 2 pozycje na `/cards`)                                |
-| R-04   | `mock-provider.test.ts` (kontrakt granicy AI) + kody błędów 502 z konwencji API; komunikat błędu w UI weryfikowany przy rozbudowie spec-ów              |
+| R-04   | `openrouter.test.ts` — dostawca odpowiada HTTP 200 z ciałem błędu (przeciążony upstream): błąd rozpoznany jako `upstream`, ponowienie na modelu zapasowym, po 3 nieudanych próbach `AiProviderError` z komunikatem dla użytkownika zamiast ciszy; `mock-provider.test.ts` (kontrakt granicy AI); kody błędów 502 z konwencji API. Ryzyko zmaterializowało się na produkcji 2026-09-14 (2 z 3 generacji „bez formatu" — patrz `lessons.md`) |
 | R-05   | `auth.test.ts` — hash w formacie `salt:hash` bez hasła w treści, weryfikacja true/false, duplikat e-maila → null (jedna odpowiedź niezależnie od kontekstu) |
 | R-06   | `validation.test.ts` — wartości graniczne po obu stronach każdego limitu                                                                                |
 
