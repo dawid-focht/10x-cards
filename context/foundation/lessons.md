@@ -36,3 +36,21 @@
   wpis w logu i ponowienie na modelu zapasowym (`AI_MODEL_FALLBACKS`).
   Regresję pilnuje `tests/unit/openrouter.test.ts`.
 - **Applies to:** `src/lib/ai/openrouter.ts`, każdy przyszły provider w `src/lib/ai/`.
+
+## L-004 Ochrona CSRF Astro za reverse proxy odrzuca DELETE
+
+- **Context:** produkcja 2026-09-14 (nginx → node), zrzuty do zgłoszenia.
+  Usuwanie fiszki kończyło się komunikatem „Nie udało się usunąć fiszki";
+  w logu nginx `DELETE /api/flashcards/16 → 403`, ciało: „Cross-site DELETE
+  form submissions are forbidden". Lokalnie i w E2E wszystko przechodziło.
+- **Problem:** wbudowany `security.checkOrigin` porównuje nagłówek `Origin`
+  (`https://cards.focht.pl`) z URL-em, który Astro buduje z gniazda
+  (`http://127.0.0.1:4321`), bo bez listy dozwolonych hostów ignoruje
+  `X-Forwarded-Proto`. Żądania z JSON-owym content-type są z tej kontroli
+  wyłączone, więc POST/PUT działały — padało wyłącznie DELETE bez ciała.
+- **Rule:** za reverse proxy ustaw `security.allowedDomains` (host produkcyjny
+  z `protocol: 'https'` + localhost/127.0.0.1 dla dev i E2E) i po wdrożeniu
+  sprawdź każdą metodę HTTP z `curl`, nie tylko GET/POST. Deploy bez
+  przeklikania pełnego CRUD-a na produkcji to nie jest deploy.
+- **Applies to:** `astro.config.mjs`, `context/foundation/infrastructure.md`,
+  każda zmiana adresu publicznego.

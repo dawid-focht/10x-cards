@@ -48,3 +48,5 @@ wolumenem.
 
 - Klucz LLM tylko w env procesu; brak kluczy w repo i w CI (CI używa MockProvider).
 - Brak zewnętrznego IdP; sesje własne — nie ma tokenów OAuth do zarządzania.
+
+**Reverse proxy a CSRF (2026-09-14):** Astro 7 waliduje `X-Forwarded-Proto`/`Host` tylko dla hostów z `security.allowedDomains` w `astro.config.mjs`; bez tego wbudowany `checkOrigin` odrzuca DELETE z przeglądarki (403). Nowa domena publiczna = nowy wpis na tej liście (patrz `lessons.md` L-004).
