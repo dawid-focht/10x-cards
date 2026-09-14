@@ -18,7 +18,7 @@ ma deterministyczny MockProvider.
 
 ### F-01 Bootstrap projektu
 - **Unlocks:** S-01, S-02, S-03, S-04
-- **Zakres:** szkielet Astro 5 + React + TS + Tailwind (starter CLI), schemat SQLite
+- **Zakres:** szkielet Astro 7 + React + TS + Tailwind (starter CLI), schemat SQLite
   (node:sqlite) z idempotentną migracją, middleware sesji (szkielet), lint/format,
   reguły agenta (CLAUDE.md/AGENTS.md), skrypty npm.
 - **Status:** done

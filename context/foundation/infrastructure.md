@@ -6,8 +6,8 @@
 
 **MVP działa lokalnie (node adapter); docelowy hosting: dowolny managed Node host —
 rekomendacja DigitalOcean App Platform lub VPS z Node 22+ (dostępny: Hetzner).**
-Publiczny deployment jest warstwą ponad minimum certyfikacji (prework 4.2) i nie jest
-wykonywany w tym przejściu kursu — plan wdrożenia poniżej jest kompletny i wykonywalny.
+Publiczny deployment jest warstwą ponad minimum certyfikacji (prework 4.2), więc
+odkładam go na później — plan wdrożenia poniżej jest kompletny i wykonywalny.
 
 ## Scored comparison (kryteria agent-friendly z M1L5)
 

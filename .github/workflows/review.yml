@@ -1,0 +1,195 @@
+name: AI code review
+
+# Bramka jakościowa na pull requeście: agent z ai-review/ ocenia diff w pięciu
+# osiach, wynik ląduje w komentarzu, a job pada, gdy bramka blokuje.
+#
+# Świadomie `pull_request`, a NIE `pull_request_target`: ten drugi wykonuje
+# workflow z gałęzi bazowej z pełnym dostępem do sekretów w kontekście kodu
+# autora PR-a. Ceną za bezpieczny wariant jest to, że PR z forka nie dostanie
+# ani sekretu, ani prawa do komentowania — w prywatnym repozytorium jednego
+# właściciela to nie boli, a w publicznym byłaby to jedyna sensowna domyślna.
+on:
+  pull_request:
+  workflow_dispatch:
+
+# Minimum potrzebne do zadania: czytanie kodu + komentarz na PR.
+# Brak `contents: write`, brak `actions: write`, brak `id-token`.
+permissions:
+  contents: read
+  pull-requests: write
+
+# Darmowy OpenRouter ma limit 50 zapytań na dobę. Kolejny push do tej samej
+# gałęzi ubija poprzedni przebieg, zamiast palić drugie zapytanie na diff,
+# który już jest nieaktualny.
+concurrency:
+  group: ai-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ai-review:
+    name: Agent code review
+    runs-on: ubuntu-latest
+    steps:
+      # fetch-depth: 0 jest tu warunkiem działania, nie ostrożnością. Domyślny
+      # płytki checkout (depth 1) nie ma commita bazowego, więc `git diff`
+      # względem bazy zwróciłby pustkę — agent dostałby pusty diff i grzecznie
+      # przepuścił każdą zmianę.
+      - name: Checkout (pełna historia)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Diff względem gałęzi bazowej
+        id: diff
+        shell: bash
+        env:
+          # Wartości z eventu wchodzą przez env, nie przez interpolację w `run:`.
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          # Limit techniczny, nie estetyczny: execve na Linuksie ogranicza
+          # pojedynczy łańcuch w środowisku procesu do 128 KiB (MAX_ARG_STRLEN),
+          # a diff jedzie do akcji właśnie jako zmienna środowiskowa. Powyżej
+          # tego progu krok padłby na E2BIG, więc przycinamy z marginesem i
+          # mówimy o tym wprost w recenzji.
+          MAX_DIFF_BYTES: '90000'
+        run: |
+          set -euo pipefail
+
+          if [ -n "${BASE_SHA}" ]; then
+            base="${BASE_SHA}"
+          else
+            # workflow_dispatch: nie ma PR-a, więc bazą jest gałąź domyślna.
+            git fetch --no-tags --quiet origin "${DEFAULT_BRANCH}"
+            base="origin/${DEFAULT_BRANCH}"
+          fi
+
+          out="${RUNNER_TEMP}/pr.diff"
+          # --merge-base: recenzujemy wyłącznie to, co wnosi ta gałąź, a nie
+          # commity, które w międzyczasie doszły do bazy.
+          #
+          # Wykluczenia: pliki generowane maszynowo (lockfile'e, zrzuty wyników
+          # evali, snapshoty testów) nie niosą decyzji projektowych, a potrafią
+          # wypchnąć z okna cały realny kod — zrzut evali to 3232 linie, przy
+          # limicie 90 kB nie zostaje nic na resztę zmiany.
+          git diff --merge-base "${base}" HEAD -- . \
+            ':(exclude)**/package-lock.json' \
+            ':(exclude)**/yarn.lock' \
+            ':(exclude)**/pnpm-lock.yaml' \
+            ':(exclude)ai-review/evals/results/**' \
+            ':(exclude)**/__snapshots__/**' \
+            > "${out}"
+
+          bytes=$(wc -c < "${out}")
+          echo "diff względem ${base}: ${bytes} bajtów"
+          echo "path=${out}" >> "${GITHUB_OUTPUT}"
+
+          truncated_note=''
+          if [ "${bytes}" -gt "${MAX_DIFF_BYTES}" ]; then
+            head -c "${MAX_DIFF_BYTES}" "${out}" > "${out}.cut"
+            printf '\n\n[... diff przycięty na %s bajtach z %s ...]\n' "${MAX_DIFF_BYTES}" "${bytes}" >> "${out}.cut"
+            mv "${out}.cut" "${out}"
+            echo "::warning title=Diff przycięty::recenzja pokrywa pierwsze ${MAX_DIFF_BYTES} bajtów z ${bytes}."
+            # Adnotacja przebiegu jest niewidoczna dla czytającego komentarz na
+            # PR-ze, a „bramka przepuszcza" na 1/3 zmiany znaczy co innego niż na
+            # całości. Limit musi być jawny tam, gdzie zapada decyzja o merge'u.
+            pct=$(( MAX_DIFF_BYTES * 100 / bytes ))
+            truncated_note="> ⚠️ **Recenzja niepełna:** diff przycięty do ${MAX_DIFF_BYTES} z ${bytes} bajtów (**~${pct}% zmiany**). Werdykt dotyczy wyłącznie obejrzanej części."
+          fi
+          {
+            printf 'truncated_note<<AI_REVIEW_NOTE\n'
+            printf '%s\n' "${truncated_note}"
+            printf 'AI_REVIEW_NOTE\n'
+          } >> "${GITHUB_OUTPUT}"
+
+          # Losowy separator heredoc: treść diffu jest pisana przez autora PR-a,
+          # a stały separator (np. EOF) dałoby się w niej powtórzyć i domknąć
+          # blok wcześniej, dopisując dowolne zmienne do GITHUB_OUTPUT.
+          delim="AI_REVIEW_DIFF_$(openssl rand -hex 16)"
+          {
+            printf 'patch<<%s\n' "${delim}"
+            cat "${out}"
+            printf '\n%s\n' "${delim}"
+          } >> "${GITHUB_OUTPUT}"
+
+      # Skan na PEŁNYM diffie, przed przycięciem. Akcja skanuje jeszcze raz to,
+      # co realnie dostaje model (defense in depth przy użyciu standalone), ale
+      # tam trafia już treść przycięta do limitu env — sekret w odciętej części
+      # przeszedłby niezauważony. Tu widzimy całość, niezależnie od rozmiaru.
+      - name: Skan sekretów na pełnym diffie
+        shell: bash
+        env:
+          DIFF_FILE: ${{ steps.diff.outputs.path }}
+        run: bash .github/actions/ai-reviewer/scan-secrets.sh
+
+      - name: Agent code review
+        id: review
+        uses: ./.github/actions/ai-reviewer
+        with:
+          api-key: ${{ secrets.OPENROUTER_API_KEY }}
+          # Tytuł i opis pisze autor PR-a. Przechodzą przez `with:` → `inputs`
+          # → `env:` wewnątrz akcji i ani razu nie lądują w treści `run:`.
+          # Wstawione wprost do skryptu powłoki byłyby wykonaniem kodu na
+          # runnerze, który trzyma w pamięci sekret OPENROUTER_API_KEY.
+          pr-title: ${{ github.event.pull_request.title }}
+          pr-body: ${{ github.event.pull_request.body }}
+          diff: ${{ steps.diff.outputs.patch }}
+
+      # always(), bo komentarz z powodami blokady jest najbardziej potrzebny
+      # dokładnie wtedy, gdy coś poszło nie tak.
+      - name: Komentarz z wynikiem na PR
+        if: ${{ always() && github.event_name == 'pull_request' }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          TRUNCATED_NOTE: ${{ steps.diff.outputs.truncated_note }}
+        run: |
+          set -euo pipefail
+
+          # AI_REVIEW_COMMENT_FILE wystawia akcja przez GITHUB_ENV. Jeżeli go nie
+          # ma, agent nie doszedł do wyniku — mimo to zostawiamy ślad na PR-ze.
+          body="${AI_REVIEW_COMMENT_FILE:-}"
+          if [ -z "${body}" ] || [ ! -f "${body}" ]; then
+            body="${RUNNER_TEMP}/ai-review-fallback.md"
+            {
+              printf '## Agent code review nie dał wyniku\n\n'
+              printf 'Przebieg zatrzymał się przed recenzją (skan sekretów, brak klucza albo błąd agenta).\n\n'
+              printf 'Log: %s\n' "${RUN_URL}"
+            } > "${body}"
+          fi
+
+          # Ostrzeżenie o niepełnym pokryciu ląduje NA GÓRZE komentarza — pod
+          # tabelą ocen nikt go nie przeczyta, a to ono zmienia znaczenie werdyktu.
+          if [ -n "${TRUNCATED_NOTE}" ]; then
+            merged="${RUNNER_TEMP}/ai-review-with-note.md"
+            { printf '%s\n\n' "${TRUNCATED_NOTE}"; cat "${body}"; } > "${merged}"
+            body="${merged}"
+          fi
+
+          # --edit-last: kolejny push nadpisuje poprzedni komentarz zamiast
+          # dokładać wątek. Starsze `gh` nie zna --create-if-none, stąd fallback.
+          gh pr comment "${PR_NUMBER}" --body-file "${body}" --edit-last --create-if-none \
+            || gh pr comment "${PR_NUMBER}" --body-file "${body}"
+
+      - name: Bramka
+        if: ${{ always() && steps.review.outcome != 'skipped' }}
+        shell: bash
+        env:
+          VERDICT: ${{ steps.review.outputs.verdict }}
+        run: |
+          set -euo pipefail
+          case "${VERDICT}" in
+            pass)
+              echo "Bramka przepuszcza — żadna reguła progowa nie zadziałała."
+              ;;
+            blocked)
+              echo "::error title=Bramka code review::agent zablokował zmianę. Powody są w komentarzu na PR i w podsumowaniu przebiegu."
+              exit 1
+              ;;
+            *)
+              echo "::error title=Bramka code review::brak werdyktu (verdict='${VERDICT}') — agent nie doszedł do końca. To awaria narzędzia, nie ocena zmiany."
+              exit 1
+              ;;
+          esac

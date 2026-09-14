@@ -1,0 +1,79 @@
+name: 'Agent code review (10xCards)'
+description: >-
+  Skanuje diff pod kątem sekretów, a następnie oddaje go agentowi z ai-review/
+  i zwraca werdykt bramki. Nie komentuje PR-a i nie wywraca joba przy blokadzie —
+  decyzję zostawia konsumentowi.
+author: '10xCards'
+
+# Wariant lokalny: akcja mieszka w tym samym repozytorium, co paczka agenta,
+# więc konsument woła ją przez `uses: ./.github/actions/ai-reviewer`. Kod agenta
+# jest szukany w $GITHUB_WORKSPACE/ai-review — to jedyne miejsce, w którym akcja
+# zakłada coś o układzie repozytorium.
+
+inputs:
+  api-key:
+    description: >-
+      Klucz OpenRoutera. Podawaj wyłącznie z `secrets`. Nigdzie nie jest
+      wypisywany: wchodzi do kroku agenta przez env i tam się kończy.
+    required: true
+  pr-title:
+    description: >-
+      Tytuł pull requesta. NIEUFNE WEJŚCIE — pisze je autor PR-a. Trafia do
+      kroku agenta wyłącznie przez env; żaden blok `run:` go nie interpoluje.
+    required: false
+    default: ''
+  pr-body:
+    description: >-
+      Opis pull requesta. Nieufne wejście na tych samych zasadach co pr-title.
+      Agent otacza tytuł i opis separatorem z jednorazowym nonce i traktuje jak
+      dane, nie jak polecenia.
+    required: false
+    default: ''
+  diff:
+    description: >-
+      Unified diff do recenzji, policzony przez konsumenta względem gałęzi
+      bazowej. Pusty diff nie jest błędem — agent go przepuszcza.
+    required: false
+    default: ''
+
+outputs:
+  verdict:
+    description: >-
+      `pass` (bramka przepuszcza), `blocked` (bramka blokuje) albo `error`
+      (agent nie wystartował — w tym przypadku krok akcji już wywrócił joba).
+    value: ${{ steps.agent.outputs.verdict }}
+
+runs:
+  using: composite
+  steps:
+    # PIERWSZY krok, przed instalacją i przed jakimkolwiek wywołaniem sieciowym.
+    # Sekret w diffie ma zatrzymać przebieg, zanim diff opuści runnera.
+    - name: Skan sekretów w diffie
+      shell: bash
+      env:
+        DIFF: ${{ inputs.diff }}
+      run: bash "${{ github.action_path }}/scan-secrets.sh"
+
+    - name: Node 24
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version: 24
+        cache: npm
+        cache-dependency-path: ai-review/package-lock.json
+
+    - name: Instalacja zależności agenta
+      shell: bash
+      working-directory: ${{ github.workspace }}/ai-review
+      run: npm ci
+
+    - name: Recenzja
+      id: agent
+      shell: bash
+      env:
+        # Sekret i nieufne wejścia idą kanałem env. Interpolacja `${{ }}` w
+        # wartości env jest bezpieczna — powłoka nigdy nie widzi tej treści jako kodu.
+        OPENROUTER_API_KEY: ${{ inputs.api-key }}
+        AI_REVIEW_PR_TITLE: ${{ inputs.pr-title }}
+        AI_REVIEW_PR_BODY: ${{ inputs.pr-body }}
+        DIFF: ${{ inputs.diff }}
+      run: bash "${{ github.action_path }}/run-review.sh"
